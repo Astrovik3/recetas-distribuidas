@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "recetas-distribuidas",
+    "slug": "recetas-distribuidas",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "recetas-distribuidas"
+}
