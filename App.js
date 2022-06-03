@@ -6,6 +6,8 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Text>App.js already been modified.</Text>
+      <Text>Create new folder for screens...</Text>
+      <Text>Grupo 10 the best...</Text>
       <StatusBar style="auto" />
     </View>
   );
