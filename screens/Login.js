@@ -1,20 +1,27 @@
 import React from 'react';
-import { Text, Button } from 'react-native';
+import { Text, Button, View } from 'react-native';
 import { Grid } from '@material-ui/core';
 
 const Login = ({navigation}) => {
+
+
   return (
-    <Grid className='default'>
+    <Grid style={{backgroundColor: '#82f082', display:'flex', justifyContent: 'center'}}>
+
       <Text> LOGIN screen </Text>
-      <Button title='home' onPress={() => navigation.navigate('Home')} />
-      
+      <View style={{width: '120px'}}>
+        <Button title='home' onPress={() => navigation.navigate('Home')} />
+      </View>
+
     </Grid>
   );
 }
 
 /*
-Exportar los estilosssssssss
-<Grid className='default'>
+-Importar estilos de archivo separado??? VER
+
+-Importar imagenes??? VER
+<img src={require('../media/recetaTest')}  />
 */
 
 export default Login;
