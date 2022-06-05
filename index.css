@@ -2,7 +2,7 @@
 
 .default{
     flex: 1;
-    background-color: white;
+    background-color: rgb(130, 240, 130);
     align-items: center;
     justify-content: center;
 
