@@ -1,7 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 
 
-
 /* ARCHIVO DE ESTILOS */
 
 const useStyles = makeStyles(() => ({
@@ -11,6 +10,11 @@ const useStyles = makeStyles(() => ({
     alignItems: center,
     justifyContent: center
     
+  },
+  gridLogin: {
+    display:'flex', 
+    backgroundColor: '#82f082', 
+    justifyContent: 'center'
   }
 
 

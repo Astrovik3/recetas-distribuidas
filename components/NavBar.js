@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 
 const NavBar = () => {
   return (
-    <View style={{marginLeft: '50px'}}>
+    <View style={{backgroundColor: '#EBEBAD'}}>
       <Text> NAVBAR... desarrollarla </Text>
     </View>
   );
