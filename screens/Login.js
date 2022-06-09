@@ -21,13 +21,22 @@ const Login = ({navigation}) => {
           <TextField fullWidth id="standard-basic" label="Contraseña" variant="standard"/>
         </Grid>
 
-        <Text style={{color: '#F1AE00'}}>Me olvidé la contraseña</Text>
-
-        <Grid style={{width: '120px'}}>
-          <Button title='LOGIN' color={'#F1AE00'} onPress={() => navigation.navigate('Home')} />
+        <Grid className={classes.recuperarLogin}>
+          <Text style={{fontWeight: 'bold', color: '#F1AE00'}} onPress={() => navigation.navigate('ResetPassword')}>
+            Me olvidé la contraseña
+          </Text>
         </Grid>
 
-        <Text>No tenés una cuenta? crear</Text>
+        <Grid className={classes.bttnLogin}>
+          <Button title='LOGIN' color={'#F1AE00'} onPress={() => navigation.navigate('Home')}/>
+        </Grid>
+
+        <Text style={{marginTop: '12%'}}>
+          No tenés una cuenta?  
+          <Text style={{fontWeight: 'bold', color: '#F1AE00'}} onPress={() => navigation.navigate('NewAccount')}> 
+            CREAR
+          </Text>
+        </Text>
 
       </Grid>
     </Grid>
