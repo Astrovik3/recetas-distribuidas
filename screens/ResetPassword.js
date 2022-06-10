@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native';
 import { Grid, TextField } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import imgReset from '../media/imgReset.png';
 import { useStyles } from '../components/styles';
@@ -10,6 +11,9 @@ const ResetPassword = () => {
 
   return (
     <Grid className={classes.containerReset}>
+      <Grid className={classes.arrowBack}>
+        <ArrowBackIcon style={{color: '#F1AE00'}} fontSize='large'/>
+      </Grid>
 
       <Grid className={classes.imgReset}>
         <img src={imgReset} alt='imgReset' style={{width: '110px'}}/>

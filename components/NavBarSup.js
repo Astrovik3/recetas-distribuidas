@@ -1,17 +1,18 @@
 import React from 'react';
-import { Grid, TextField } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 
 
 const NavBarSup = () => {
   return (
     <Grid style={{backgroundColor: '#EBEBAD'}}>
-      <TextField> NAVBAR... desarrollarla </TextField>
+      <ArrowBackIcon />
+
+      <p> NAVBARSUP... desarrollarla </p>
     </Grid>
   );
 }
 
-//import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-//import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 export default NavBarSup;

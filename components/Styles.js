@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '100%',
     height: '110px',
-    marginTop: '120px',
+    marginTop: '55px',
     marginBottom: '60px',
     justifyContent: 'center'
   },
@@ -79,11 +79,20 @@ const useStyles = makeStyles((theme) => ({
     width: '60%',
     marginTop: '47%'
   },
+
   textTitles: {
     fontFamily: 'Helvetica',
     fontSize: 'large',
     color: '1E1E1E'
+  },
+  arrowBack: {
+    display: 'flex',
+    width: '100%',
+    paddingLeft: '30px',
+    paddingTop: '30px'
+
   }
+
 
 
 }));
