@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
   imgLogin: {
     width: '100%', 
     height: '300px'
+    //justifySelf: 'center',
   },
   bttnLogin: {
     //marginTop: '90px',
@@ -45,8 +46,44 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     fontWeight: 'bold',
     marginBottom: '20px',
-  }
+  },
 
+  containerReset: {
+    backgroundColor: '#F4F4F4',
+    justifyContent: 'center',
+    height: '100%'
+
+  },
+  imgReset: {
+    display: 'flex',
+    width: '100%',
+    height: '110px',
+    marginTop: '120px',
+    marginBottom: '60px',
+    justifyContent: 'center'
+  },
+  gridReset: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  inputReset: {
+    display: 'flex',
+    width: '80%',
+    marginTop: '25px',
+    justifyContent: 'center'
+  },
+  bttnReset: {
+    justifyContent: 'center',
+    width: '60%',
+    marginTop: '47%'
+  },
+  textTitles: {
+    fontFamily: 'Helvetica',
+    fontSize: 'large',
+    color: '1E1E1E'
+  }
 
 
 }));

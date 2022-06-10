@@ -2,12 +2,12 @@ import React from 'react';
 import { Text } from 'react-native';
 import { Grid } from '@material-ui/core';
 
-import NavBar from '../components/NavBar';
+import NavBarSup from '../components/NavBarSup';
 
 const Home = () => {
   return (
     <Grid className='default'>
-      <NavBar />
+      <NavBarSup />
       <Text> HOME </Text>
     </Grid>
   );

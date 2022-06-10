@@ -1,17 +1,37 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { Grid } from '@material-ui/core';
+import { Button } from 'react-native';
+import { Grid, TextField } from '@material-ui/core';
 
+import imgReset from '../media/imgReset.png';
+import { useStyles } from '../components/styles';
 
 const ResetPassword = () => {
+  const classes = useStyles();
+
   return (
-    <Grid className='default'>
-      <Text> RESET PASSWORD </Text>
-      <br />
-      <Text> pantalla para recuperar la contraseña </Text>
+    <Grid className={classes.containerReset}>
+
+      <Grid className={classes.imgReset}>
+        <img src={imgReset} alt='imgReset' style={{width: '110px'}}/>
+      </Grid>
+
+      <Grid className={classes.gridReset}>
+        <p className={classes.textTitles}> CAMBIAR CONTRASEÑA </p>
+
+        <Grid className={classes.inputReset}>
+          <TextField fullWidth id="standard-basic" label="Correo electrónico" variant="standard"/>
+        </Grid>
+
+        <Grid className={classes.bttnReset}>
+          <Button title='continuar' color={'#F1AE00'} />
+        </Grid>
+      </Grid>
 
     </Grid>
   );
 }
+
+// className={classes.imgReset}
+// onPress={() => navigation.navigate('Home')}
 
 export default ResetPassword;
