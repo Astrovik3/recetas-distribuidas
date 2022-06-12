@@ -6,13 +6,15 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import imgReset from '../media/imgReset.png';
 import { useStyles } from '../components/styles';
 
-const ResetPassword = () => {
+const ResetPassword = ({navigation}) => {
   const classes = useStyles();
 
   return (
     <Grid className={classes.containerReset}>
       <Grid className={classes.arrowBack}>
-        <ArrowBackIcon style={{color: '#F1AE00'}} fontSize='large'/>
+        <div style={{width: '35px', height: '35'}} onClick={() => navigation.navigate('Login')}>
+          <ArrowBackIcon style={{color: '#F1AE00'}} fontSize='large'/>
+        </div>
       </Grid>
 
       <Grid className={classes.imgReset}>
@@ -35,7 +37,6 @@ const ResetPassword = () => {
   );
 }
 
-// className={classes.imgReset}
-// onPress={() => navigation.navigate('Home')}
+
 
 export default ResetPassword;

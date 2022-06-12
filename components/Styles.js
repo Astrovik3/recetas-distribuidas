@@ -29,13 +29,19 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
+  inputNewAccount: {
+    display: 'flex',
+    width: '80%',
+    marginTop: '10px',
+    height: '150px',
+    flexDirection: 'column',
+    justifyContent: 'space-around'
+  },
   imgLogin: {
     width: '100%', 
     height: '300px'
-    //justifySelf: 'center',
   },
   bttnLogin: {
-    //marginTop: '90px',
     marginTop: '24%',
     justifyContent: 'center',
     width: '60%'
@@ -51,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
   containerReset: {
     backgroundColor: '#F4F4F4',
     justifyContent: 'center',
-    height: '100%'
+    height: '100%',
+    margin: '0px'
 
   },
   imgReset: {
@@ -77,7 +84,7 @@ const useStyles = makeStyles((theme) => ({
   bttnReset: {
     justifyContent: 'center',
     width: '60%',
-    marginTop: '47%'
+    marginTop: '46%'
   },
 
   textTitles: {
@@ -85,12 +92,41 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 'large',
     color: '1E1E1E'
   },
+  textTitles2: {
+    marginBottom: '0px',
+    fontFamily: 'Helvetica',
+    fontSize: 'xx-large',
+    color: '1E1E1E'
+  },
+  textTitles3: {
+    fontFamily: 'sans-serif',
+    fontSize: 'x-large',
+    color: 'red'
+  },
+  textBotttom: {
+    fontFamily: 'Hanuman',
+    fontSize: 'x-large',
+    color: 'red'
+  },
   arrowBack: {
     display: 'flex',
     width: '100%',
     paddingLeft: '30px',
     paddingTop: '30px'
 
+  },
+
+  gridNewAccount: {
+    display: 'flex',
+    marginTop: '90px',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  bttnNewAccount: {
+    marginTop: '35%',
+    justifyContent: 'center',
+    width: '60%'
   }
 
 
