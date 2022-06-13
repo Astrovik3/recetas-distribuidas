@@ -28,7 +28,7 @@ const Comment = ({photo, name, stars, comment}) => {
     <Grid>
       <Grid>
         <Text>FOTO      </Text> 
-        <Text>Nombre Apellido      </Text> 
+        <Text>Nombre Apellido       </Text> 
         <Grid>
           {
             stars !== 0
