@@ -140,10 +140,11 @@ const useStyles = makeStyles((theme) => ({
     width: '85%'
   },
 
-  gridReview: {
-    paddingLeft: '10px'
-  },
+  
   nameFoodReview: {
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    marginTop: '10px',
     height: '30px',
     fontFamily: 'Helvetica',
     fontSize: 'x-large',
@@ -151,9 +152,21 @@ const useStyles = makeStyles((theme) => ({
 
   },
   subnavReview: {
-
+    display: 'flex',
+    paddingLeft: '10px',
+    paddingRight: '15px',
+    paddingBottom: '10px',
+    height: '35px',
     color: '#6A6A6A',
-    fontFamily: 'Helvetica'
+    fontFamily: 'Helvetica',
+    justifyContent: 'space-between',
+    borderBottom: 'solid #1E1E1E 1px'
+  },
+  commentsReview: {
+    display: 'flex',
+    marginTop: '10px',
+    paddingLeft: '10px',
+    paddingRight: '10px',
   }
 
 

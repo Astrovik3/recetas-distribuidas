@@ -22,19 +22,21 @@ const Reviews = ({receta}) => {
   return (
     <Grid>
       <NavBarSup />
-      <Grid className={classes.gridReview}>
-        <Grid className={classes.nameFoodReview}>
-          <p style={{marginTop: '0px', marginBottom: '5px'}}>Fideos con salsa</p>
-        </Grid>
-
-        <Grid className={classes.subnavReview}>
-          <p style={{marginTop: '5px', marginBottom: '10px'}}>comentarios y calificaciones</p>
-          <CreateIcon style={{color: '#F1AE00'}} fontSize='large'/>
-        </Grid>
+      <Grid className={classes.nameFoodReview}>
+        <p style={{marginTop: '0px', marginBottom: '0px'}}>Fideos con salsa (estrellitas)</p>
       </Grid>
 
-      <Comment />
-      <Text> LISTA DE OPINIONES DE LA RECETA </Text>
+      <Grid className={classes.subnavReview}>
+        <p style={{marginBottom: '5px', alignSelf: 'flex-end'}}>comentarios y calificaciones</p>
+
+        <div style={{width: '35px', height: '35'}} onClick={() => navigation.navigate('Login')}>
+          <CreateIcon style={{color: '#F1AE00'}} fontSize='large'/>
+        </div>
+      </Grid>
+
+      <Grid className={classes.commentsReview}>
+        <Comment />
+      </Grid>
     </Grid>
   );
 }

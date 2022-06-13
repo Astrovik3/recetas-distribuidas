@@ -9,7 +9,7 @@ const NavBarSup = () => {
     <Grid style={{backgroundColor: '#EBEBAD'}}>
       <ArrowBackIcon />
 
-      <p> NAVBARSUP... desarrollarla </p>
+      <p style={{marginBottom: '0px'}}> NAVBARSUP... desarrollarla </p>
     </Grid>
   );
 }
