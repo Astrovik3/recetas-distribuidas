@@ -12,16 +12,37 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 const Comment = ({photo, name, stars, comment}) => {
 
+  //Acá inicializo un array vacío y luego lo voy llenando a partir del parámetro stars...
+  //donde me llega la puntuación del comentario...
+  const cantFillStars = ([]);
+  for (let i=0; i < stars; i++) {
+    cantFillStars.push(1);
+  }
+  const cantEmptyStars = ([]);
+  for (let i=stars; i < 5; i++) {
+    cantEmptyStars.push(1);
+  }
+
+  
   return (
     <Grid>
       <Grid>
         <Text>FOTO      </Text> 
         <Text>Nombre Apellido      </Text> 
-        <StarIcon style={{color: '#F1AE00'}} fontSize='small'/>
-        <StarIcon style={{color: '#F1AE00'}} fontSize='small'/>
-        <StarIcon style={{color: '#F1AE00'}} fontSize='small'/>
-        <StarBorderIcon style={{color: '#F1AE00'}} fontSize='small'/>
-        <StarBorderIcon style={{color: '#F1AE00'}} fontSize='small'/>
+        <Grid>
+          {
+            stars !== 0
+            ? <Grid style={{display: 'flex'}}>
+                <Grid> 
+                  {cantFillStars.map(() => <StarIcon style={{color: '#F1AE00'}} fontSize='small'/>)} 
+                </Grid>
+                <Grid> 
+                  {cantEmptyStars.map(() => <StarBorderIcon style={{color: '#F1AE00'}} fontSize='small'/>)} 
+                </Grid>
+              </Grid>
+            : <StarBorderIcon style={{color: '#F1AE00'}} fontSize='small'/>
+          }
+        </Grid>
       </Grid>
       <Text> 
         Ut enim ad minima veniam, quasi architecto beatae vitae dicta sunt explicabo. 

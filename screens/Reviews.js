@@ -35,7 +35,7 @@ const Reviews = ({receta}) => {
       </Grid>
 
       <Grid className={classes.commentsReview}>
-        <Comment />
+        <Comment stars={4}/>
       </Grid>
     </Grid>
   );
