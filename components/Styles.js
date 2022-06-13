@@ -82,9 +82,10 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center'
   },
   bttnReset: {
+    position: 'absolute',
+    bottom: '16%',
     justifyContent: 'center',
-    width: '60%',
-    marginTop: '46%'
+    width: '60%'
   },
 
   textTitles: {
@@ -124,11 +125,36 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center'
   },
   bttnNewAccount: {
-    marginTop: '35%',
+    position: 'absolute',
+    bottom: '16%',
     justifyContent: 'center',
     width: '60%'
-  }
+  },
+  textBelow: {
+    display: 'flex', 
+    position: 'absolute',
+    height: '40px',
+    bottom: '5%',
+    justifyContent: 'center', 
+    alignContent: 'flex-start',
+    width: '85%'
+  },
 
+  gridReview: {
+    paddingLeft: '10px'
+  },
+  nameFoodReview: {
+    height: '30px',
+    fontFamily: 'Helvetica',
+    fontSize: 'x-large',
+    color: '#1E1E1E',
+
+  },
+  subnavReview: {
+
+    color: '#6A6A6A',
+    fontFamily: 'Helvetica'
+  }
 
 
 }));

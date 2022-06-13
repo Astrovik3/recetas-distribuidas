@@ -31,8 +31,8 @@ const NewAccount = ({navigation}) => {
           <Button title='continuar' color={'#F1AE00'} />
         </Grid>
         
-        <Grid style={{display: 'flex', justifyContent: 'center', width: '85%'}}>
-          <Text style={{marginTop: '12%', color: '#757575'}}>
+        <Grid className={classes.textBelow}>
+          <Text style={{color: '#757575'}}>
             Haciendo click en continuar estás aceptando los '
             <Text style={{fontWeight: 'bold', color: '#F1AE00'}} onPress={() => navigation.navigate('NewAccount')}> 
               Terminos y Condiciones
