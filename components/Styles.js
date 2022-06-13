@@ -9,10 +9,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#82f082',
     alignItems: 'center',
     justifyContent: 'center'
-    
+
   },
   containerLogin: {
-    backgroundColor: '#F4F4F4', 
+    backgroundColor: '#F4F4F4',
     height: '100%'
   },
   gridLogin: {
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-around'
   },
   imgLogin: {
-    width: '100%', 
+    width: '100%',
     height: '300px'
   },
   bttnLogin: {
@@ -45,6 +45,27 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'flex-end',
     fontWeight: 'bold',
     marginBottom: '20px',
+  },
+  homeFooterBar: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: 'auto'
+  },
+  homeCard: {
+    width: 'auto'
+  },
+  homeScroll: {
+    display: 'flex',
+    gap: 1,
+    overflow: 'auto',
+    width: 'auto',
+    scrollSnapType: 'x mandatory',
+    '& > *': {
+      scrollSnapAlign: 'center',
+    },
+    '::-webkit-scrollbar': { display: 'none' },
   }
 
 
@@ -52,4 +73,4 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export {useStyles};
+export { useStyles };
