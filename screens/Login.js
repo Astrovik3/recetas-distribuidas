@@ -5,7 +5,7 @@ import { Grid, TextField } from '@material-ui/core';
 import imgLogin from '../media/imgLogin.png';
 import { useStyles } from '../components/styles';
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   //de aca me importo los estilos...
   const classes = useStyles();
 
@@ -13,28 +13,28 @@ const Login = ({navigation}) => {
   return (
     <Grid className={classes.containerLogin}>
 
-      <img src={imgLogin} alt='imgLogin' className={classes.imgLogin}/>
+      <img src={imgLogin} alt='imgLogin' className={classes.imgLogin} />
 
       <Grid className={classes.gridLogin}>
         <Grid className={classes.inputLogin}>
-          <TextField fullWidth id="standard-basic" label="Usuario" variant="standard"/>
-          <TextField fullWidth id="standard-basic" label="Contraseña" variant="standard"/>
+          <TextField fullWidth id="standard-basic" label="Usuario" variant="standard" />
+          <TextField fullWidth id="standard-basic" label="Contraseña" variant="standard" />
         </Grid>
 
         <Grid className={classes.recuperarLogin}>
-          <Text style={{fontWeight: 'bold', color: '#F1AE00'}} onPress={() => navigation.navigate('ResetPassword')}>
+          <Text style={{ fontWeight: 'bold', color: '#F1AE00' }} onPress={() => navigation.navigate('ResetPassword')}>
             Me olvidé la contraseña
           </Text>
         </Grid>
 
         <Grid className={classes.bttnLogin}>
-          <Button title='LOGIN' color={'#F1AE00'} onPress={() => navigation.navigate('Home')}/>
+          <Button title='LOGIN' color={'#F1AE00'} onPress={() => navigation.navigate('Home')} />
         </Grid>
 
         <Grid className={classes.textBelow}>
-          <Text style={{ color: '#757575'}}>
-            No tenés una cuenta? ' 
-            <Text style={{fontWeight: 'bold', color: '#F1AE00'}} onPress={() => navigation.navigate('NewAccount')}> 
+          <Text style={{ color: '#757575' }}>
+            No tenés una cuenta? '
+            <Text style={{ fontWeight: 'bold', color: '#F1AE00' }} onPress={() => navigation.navigate('NewAccount')}>
               crear
             </Text>
           </Text>
