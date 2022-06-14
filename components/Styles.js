@@ -168,6 +168,44 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: '10px',
     paddingRight: '10px',
   },
+
+  authorRecipe: {
+    display: 'flex',
+    paddingLeft: '10px',
+    paddingRight: '15px',
+    color: '#6A6A6A',
+    fontFamily: 'Helvetica'
+
+  },
+  nameFoodRecipe: {
+    display: 'flex',
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    height: '30px',
+    fontFamily: 'Helvetica',
+    fontSize: 'x-large',
+    color: '#1E1E1E',
+    justifyContent: 'space-between'
+
+
+  },
+  starsRecipe: {
+    display: 'flex',
+    paddingLeft: '10px',
+    paddingRight: '10px',
+    marginTop: '25px',
+    alignContent: 'center'
+  },
+  ratingRecipe: {
+    marginTop: '0px', 
+    marginBottom: '0px',
+    paddingLeft: '3px',
+    fontFamily: 'Helvetica',
+    color: '#6A6A6A',
+
+  },
+
+
   homeFooterBar: {
     position: 'absolute',
     left: 0,
