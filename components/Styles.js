@@ -131,16 +131,16 @@ const useStyles = makeStyles((theme) => ({
     width: '60%'
   },
   textBelow: {
-    display: 'flex', 
+    display: 'flex',
     position: 'absolute',
     height: '40px',
     bottom: '5%',
-    justifyContent: 'center', 
+    justifyContent: 'center',
     alignContent: 'flex-start',
     width: '85%'
   },
 
-  
+
   nameFoodReview: {
     paddingLeft: '10px',
     paddingRight: '10px',
@@ -197,7 +197,7 @@ const useStyles = makeStyles((theme) => ({
     alignContent: 'center'
   },
   ratingRecipe: {
-    marginTop: '0px', 
+    marginTop: '0px',
     marginBottom: '0px',
     paddingLeft: '3px',
     fontFamily: 'Helvetica',
@@ -226,6 +226,11 @@ const useStyles = makeStyles((theme) => ({
       scrollSnapAlign: 'center',
     },
     '::-webkit-scrollbar': { display: 'none' },
+  },
+  navBarSup: {
+    textAlign: 'center',
+    marginTop: -50,
+    color: '#FF0000',
   }
 
 

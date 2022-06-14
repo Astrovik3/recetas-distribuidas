@@ -8,13 +8,14 @@ import ResetPassword from './screens/ResetPassword';
 import NewAccount from './screens/NewAccount';
 import Recipe from './screens/Recipe';
 import Reviews from './screens/Reviews';
+import Favoritos from './screens/FavoritosRecetas';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='Favoritos' screenOptions={{headerShown: false}}>
 
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Home' component={Home} />
@@ -22,7 +23,7 @@ const App = () => {
         <Stack.Screen name='NewAccount' component={NewAccount} />
         <Stack.Screen name='Recipe' component={Recipe} />
         <Stack.Screen name='Reviews' component={Reviews} />
-
+        <Stack.Screen name='Favoritos' component={Favoritos} />
 
       </Stack.Navigator>
     </NavigationContainer>
