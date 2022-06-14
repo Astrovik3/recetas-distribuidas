@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
 import { Grid } from '@material-ui/core';
-import CreateIcon from '@material-ui/icons/Create';
+import CreateIcon from '@mui/icons-material/Create';
 
 import NavBarSup from '../components/NavBarSup';
 import Comment from '../components/Comment';
@@ -12,7 +11,7 @@ import { useStyles } from '../components/styles';
 //Y el ícono del láíz que al hacerle click te sale un pop-up para escribir y puntuar la receta...
 //{receta}
 
-const Reviews = ({receta}) => {
+const Reviews = ({listReviews}) => {
   const classes = useStyles();
 
   //Con el parámetro este de {receta} me debería traer la puntuación... VER BIEN...
@@ -29,7 +28,7 @@ const Reviews = ({receta}) => {
       <Grid className={classes.subnavReview}>
         <p style={{marginBottom: '5px', alignSelf: 'flex-end'}}>comentarios y calificaciones</p>
 
-        <div style={{width: '35px', height: '35'}} onClick={() => navigation.navigate('Login')}>
+        <div style={{width: '35px', height: '35'}}>
           <CreateIcon style={{color: '#F1AE00'}} fontSize='large'/>
         </div>
       </Grid>

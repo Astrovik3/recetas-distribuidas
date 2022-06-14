@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'react-native';
 import { Grid, TextField } from '@material-ui/core';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import imgReset from '../media/imgReset.png';
 import { useStyles } from '../components/styles';
@@ -36,7 +36,6 @@ const ResetPassword = ({navigation}) => {
     </Grid>
   );
 }
-
 
 
 export default ResetPassword;

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Text } from 'react-native';
 import { Grid } from '@material-ui/core';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
 
 //La screen Reviews llama a cada Comment, mandandole los datos 
 //de cada usuario (comentario, puntuacion, etc) => {photo, name, stars, comment}
@@ -28,7 +28,7 @@ const Comment = ({photo, name, stars, comment}) => {
     <Grid>
       <Grid>
         <Text>FOTO      </Text> 
-        <Text>Nombre Apellido      </Text> 
+        <Text>Nombre Apellido       </Text> 
         <Grid>
           {
             stars !== 0
