@@ -104,24 +104,24 @@ const itemData = [
 const Favoritos = () => {
     const classes = useStyles();
 
-    const [age, setAge] = React.useState('');
+    const [ingrediente, setIngrediente] = React.useState('');
 
     const handleChange = (event) => {
-        setAge(event.target.value);
+        setIngrediente(event.target.value);
     };
 
     return (
         <Grid className='default'>
             <NavBarSup />
 
-            <div sytle={{ backgroundColor: '#EBEBAD', display: 'flex', justifyContent: 'center' }}>
-                <Box sx={{ width: '65%', display: 'flex', justifycontent: 'center', alignitems: 'center' }}>
+            <div style={{ backgroundColor: '#EBEBAD', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                <Box sx={{ width: '65%' }}>
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Ingredientes</InputLabel>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
-                            value={age}
+                            value={ingrediente}
                             label="Ingredientes"
                             onChange={handleChange}
                         >
@@ -137,6 +137,7 @@ const Favoritos = () => {
                     label="Buscar recetas"
                     type="search"
                     variant="filled"
+                    style={{width: '85%', marginTop: 10}}
                 />
             </div>
 
