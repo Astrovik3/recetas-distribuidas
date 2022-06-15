@@ -3,20 +3,11 @@ import { Text } from 'react-native';
 import { Grid } from '@material-ui/core';
 import Box from '@mui/material/Box';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { styled } from '@mui/material/styles';
 import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
-import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
-import Collapse from '@mui/material/Collapse';
-import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { red } from '@mui/material/colors';
-import ShareIcon from '@mui/icons-material/Share';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Sheet from '@mui/joy/Sheet';
 import ImageList from '@mui/material/ImageList';
@@ -36,6 +27,7 @@ import imagenComida01 from '../media/imagenComida01.png';
 
 
 
+<<<<<<< HEAD
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
@@ -64,6 +56,8 @@ function getLabelText(value) {
   return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
 }
 
+=======
+>>>>>>> 204223e9dfa13d7ce2ba639ab6e0a084c93f3f0e
 const data = [
   {
     src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2369',
@@ -85,9 +79,10 @@ const data = [
   },
 ];
 
-const Home = () => {
+const Home = ({navigation}) => {
   const classes = useStyles();
 
+<<<<<<< HEAD
   const [value, setValue] = React.useState(2);
   const [hover, setHover] = React.useState(-1);
 
@@ -95,9 +90,11 @@ const Home = () => {
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+=======
+>>>>>>> 204223e9dfa13d7ce2ba639ab6e0a084c93f3f0e
 
   return (
-    <Grid className='default'>
+    <Grid>
       <NavBarSup />
 
       <div style={{ position: 'relative', top: '10px', backgroundColor: '#FFC68C', width: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
@@ -159,13 +156,12 @@ const Home = () => {
             >
               <AspectRatio
                 ratio="1"
-                sx={{ minWidth: 60, borderRadius: 'sm', overflow: 'auto' }}
+                sx={{ minWidth: 80, borderRadius: 'sm', overflow: 'auto' }}
               >
                 <img src={item.src} alt={item.title} />
               </AspectRatio>
               <Box sx={{ whiteSpace: 'nowrap' }}>
                 <Typography fontWeight="md">{item.title}</Typography>
-                <Typography level="body2">{item.description}</Typography>
               </Box>
             </Sheet>
           ))}

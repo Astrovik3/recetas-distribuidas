@@ -8,9 +8,11 @@ import ResetPassword from './screens/ResetPassword';
 import NewAccount from './screens/NewAccount';
 import Recipe from './screens/Recipe';
 import Reviews from './screens/Reviews';
-import Favoritos from './screens/FavoritosRecetas';
+import FavoritosRecetas from './screens/FavoritosRecetas';
 import ResultadoBusqueda from './screens/ResultadoBusqueda';
 import CreacionReceta from './screens/CreacionReceta';
+import NavBarSup from './components/NavBarSup';
+import NavBarInf from './components/NavBarInf';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,10 +27,13 @@ const App = () => {
         <Stack.Screen name='NewAccount' component={NewAccount} />
         <Stack.Screen name='Recipe' component={Recipe} />
         <Stack.Screen name='Reviews' component={Reviews} />
-        <Stack.Screen name='Favoritos' component={Favoritos} />
+        <Stack.Screen name='FavoritosRecetas' component={FavoritosRecetas} />
         <Stack.Screen name='ResultadoBusqueda' component={ResultadoBusqueda} />
         <Stack.Screen name='CreacionReceta' component={CreacionReceta} />
 
+        
+        <Stack.Screen name='NavBarSup' component={NavBarSup} />
+        <Stack.Screen name='NavBarInf' component={NavBarInf} />
 
       </Stack.Navigator>
     </NavigationContainer>
