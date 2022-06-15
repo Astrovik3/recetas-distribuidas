@@ -228,9 +228,13 @@ const useStyles = makeStyles((theme) => ({
     '::-webkit-scrollbar': { display: 'none' },
   },
   navBarSup: {
-    textAlign: 'center',
-    marginTop: -50,
-    color: '#FF0000',
+    display: 'flex',
+    paddingLeft: '10px',
+    paddingRight: '15px',
+    backgroundColor: '#EBEBAD',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    
   }
 
 

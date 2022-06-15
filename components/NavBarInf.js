@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, TextField } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import AddIcon from '@mui/icons-material/Add';
@@ -11,7 +11,12 @@ import { useStyles } from './styles';
 
 
 
-const NavBarInf = () => {
+//onClick={() => navigation.navigate('Home')}
+//onClick={() => navigation.navigate('CreacionReceta')}
+//onClick={() => navigation.navigate('FavoritosRecetas')}
+
+
+const NavBarInf = ({navigation}) => {
   const classes = useStyles();
 
   const [value, setValue] = React.useState(0);
@@ -26,10 +31,10 @@ const NavBarInf = () => {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Inicio" icon={<HomeOutlinedIcon />} />
-          <BottomNavigationAction label="Buscar" icon={<SearchIcon />} />
-          <BottomNavigationAction label="Agregar" icon={<AddIcon />} />
-          <BottomNavigationAction label="Guardados" icon={<BookmarksOutlinedIcon />} />
+          <BottomNavigationAction icon={<HomeOutlinedIcon style={{color: '#F1AE00'}} fontSize='large'/>}/>
+          <BottomNavigationAction icon={<SearchIcon style={{color: '#F1AE00'}} fontSize='large'/>} />
+          <BottomNavigationAction icon={<AddIcon style={{color: '#F1AE00'}} fontSize='large'/>}/>
+          <BottomNavigationAction icon={<BookmarksOutlinedIcon style={{color: '#F1AE00'}} fontSize='large'/>}/>
         </BottomNavigation>
       </Box>
     </Grid>
