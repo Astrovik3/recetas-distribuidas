@@ -19,6 +19,14 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Sheet from '@mui/joy/Sheet';
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import ListSubheader from '@mui/material/ListSubheader';
+import InfoIcon from '@mui/icons-material/Info';
+import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
+import Rating from '@mui/material/Rating';
+import StarIcon from '@mui/icons-material/Star';
 
 
 import NavBarSup from '../components/NavBarSup';
@@ -39,28 +47,49 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
+const labels = {
+  0.5: '0.5',
+  1: '1',
+  1.5: '1.5',
+  2: '2',
+  2.5: '2.5',
+  3: '3',
+  3.5: '3.5',
+  4: '4',
+  4.5: '4.5',
+  5: '5',
+};
+
+function getLabelText(value) {
+  return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
+}
+
 const data = [
   {
     src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2369',
     title: 'Night view',
     description: '4.21M views',
+    author: '@silverdalex',
   },
   {
     src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270',
     title: 'Lake view',
     description: '4.74M views',
+    author: '@silverdalex',
   },
   {
     src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270',
     title: 'Mountain view',
     description: '3.98M views',
+    author: '@silverdalex',
   },
 ];
 
 const Home = () => {
   const classes = useStyles();
 
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = React.useState(2);
+  const [hover, setHover] = React.useState(-1);
 
   const [expanded, setExpanded] = React.useState(false);
   const handleExpandClick = () => {
@@ -71,89 +100,51 @@ const Home = () => {
     <Grid className='default'>
       <NavBarSup />
 
-      <div style={{ position: 'relative', top: '10px' }}>
-        <Text > NUEVO INGRESO DEL DIA </Text>
-        <div style={{position: 'relative', top: '2px'}}>
-          <Card className={classes.homeCard}>
-            <CardHeader
-              avatar={
-                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                  R
-                </Avatar>
-              }
-              action={
-                <IconButton aria-label="settings">
-                  <MoreVertIcon />
+      <div style={{ position: 'relative', top: '10px', backgroundColor: '#FFC68C', width: 'auto', display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100%' }}>
+        {itemData.map((item) => (
+          <ImageListItem key={item.img} sx={{ borderRadius: '12px', height: '100%' }}>
+            <img
+              src={`${item.src}?w=248&fit=crop&auto=format`}
+              srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+              alt={item.title}
+              loading="lazy"
+              style={{ borderRadius: '12px', height: '100%' }}
+            />
+            <ImageListItemBar
+              title={item.title}
+              subtitle={item.author}
+              style={{ borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', }}
+              actionIcon={
+                <IconButton
+                  sx={{ color: 'orange' }}
+                  aria-label={`info about ${item.title}`}
+                >
+                  <Rating
+                    name="hover-feedback"
+                    readOnly
+                    value={item.rating}
+                    precision={0.5}
+                    getLabelText={getLabelText}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                    }}
+                    onChangeActive={(event, newHover) => {
+                      setHover(newHover);
+                    }}
+                    emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
+                  />
+                  <BookmarkBorderOutlinedIcon />
                 </IconButton>
+
               }
-              title="Shrimp and Chorizo Paella"
-              subheader="September 14, 2016"
             />
-            <CardMedia
-              component="img"
-              height="194"
-              image={imagenComida01}
-              alt="Paella dish"
-            />
-            <CardContent>
-              <Typography variant="body2" color="text.secondary">
-                This impressive paella is a perfect party dish and a fun meal to cook
-                together with your guests. Add 1 cup of frozen peas along with the mussels,
-                if you like.
-              </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-              <IconButton aria-label="add to favorites">
-                <FavoriteIcon />
-              </IconButton>
-              <IconButton aria-label="share">
-                <ShareIcon />
-              </IconButton>
-              <ExpandMore
-                expand={expanded}
-                onClick={handleExpandClick}
-                aria-expanded={expanded}
-                aria-label="show more"
-              >
-                <ExpandMoreIcon />
-              </ExpandMore>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
-              <CardContent>
-                <Typography paragraph>Method:</Typography>
-                <Typography paragraph>
-                  Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-                  aside for 10 minutes.
-                </Typography>
-                <Typography paragraph>
-                  Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
-                  medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
-                  occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
-                  large plate and set aside, leaving chicken and chorizo in the pan. Add
-                  pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
-                  stirring often until thickened and fragrant, about 10 minutes. Add
-                  saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
-                </Typography>
-                <Typography paragraph>
-                  Add rice and stir very gently to distribute. Top with artichokes and
-                  peppers, and cook without stirring, until most of the liquid is absorbed,
-                  15 to 18 minutes. Reduce heat to medium-low, add reserved shrimp and
-                  mussels, tucking them down into the rice, and cook again without
-                  stirring, until mussels have opened and rice is just tender, 5 to 7
-                  minutes more. (Discard any mussels that don&apos;t open.)
-                </Typography>
-                <Typography>
-                  Set aside off of the heat to let rest for 10 minutes, and then serve.
-                </Typography>
-              </CardContent>
-            </Collapse>
-          </Card>
-        </div>
+          </ImageListItem>
+        ))}
       </div>
 
       <div style={{ position: 'relative', top: '20px' }}>
-        <Text> RECOMENDACIONES </Text>
-        <Box  style={{position: 'relative', top: '2px'}} className={classes.homeScroll}>
+        <Text> Recomendaciones </Text>
+        <Box style={{ position: 'relative', top: '2px' }} className={classes.homeScroll}>
           {data.map((item) => (
             <Sheet
               key={item.title}
@@ -181,10 +172,23 @@ const Home = () => {
         </Box>
       </div>
 
-      <NavBarInf/>
+      <NavBarInf />
     </Grid>
 
   );
 }
 
 export default Home;
+
+
+const itemData = [
+  {
+    img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
+    title: 'Breakfast',
+    author: '@bkristastucchio',
+    rows: 2,
+    cols: 2,
+    featured: true,
+    rating: 4
+  },
+];
