@@ -22,8 +22,8 @@ const NavBarInf = ({navigation}) => {
   const [value, setValue] = React.useState(0);
   
   return (
-    <Grid style={{backgroundColor: '#EBEBAD'}}>
-      <Box className={classes.homeFooterBar}>
+    <Grid className={classes.homeFooterBar}>
+      <Box>
         <BottomNavigation
           showLabels
           value={value}

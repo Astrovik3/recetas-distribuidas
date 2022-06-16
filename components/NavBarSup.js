@@ -20,7 +20,7 @@ const NavBarSup = () => {
         <ArrowBackIcon style={{color: '#F1AE00'}} fontSize='large'/>
       </div>
 
-      <div style={{color: '#FF0000'}}>
+      <div style={{color: '#FF0000', fontSize: 'large', margin: '0px'}}>
         <h3 > COMIDAPP </h3>
       </div>
       <div style={{height: '35px'}}>

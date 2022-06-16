@@ -25,11 +25,11 @@ const Comment = ({photo, name, stars, comment}) => {
 
   
   return (
-    <Grid>
-      <Grid>
+    <Grid style={{marginBottom: '25px'}}>
+      <Grid style={{display: 'flex', justifyContent: 'space-between'}}>
         <Text>FOTO      </Text> 
-        <Text>Nombre Apellido       </Text> 
-        <Grid>
+        <Text> {name} </Text> 
+        <Grid style={{width: '120px'}}>
           {
             stars !== 0
             ? <Grid style={{display: 'flex'}}>
@@ -44,13 +44,13 @@ const Comment = ({photo, name, stars, comment}) => {
           }
         </Grid>
       </Grid>
-      <Text> 
-        Ut enim ad minima veniam, quasi architecto beatae vitae dicta sunt explicabo. 
-        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur. 
-      </Text>
+      <Text> {comment} </Text>
+      <p style={{marginTop: '0px'}}>_______________________</p>
 
     </Grid>
   );
 }
+
+//DESPUÉS SE ELIMINA Y SE HACE BIEN ESE INTENTO DE DIVISOR DE COMENTARIOS... <p>____</p>
 
 export default Comment;

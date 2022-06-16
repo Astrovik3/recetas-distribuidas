@@ -164,6 +164,7 @@ const useStyles = makeStyles((theme) => ({
   },
   commentsReview: {
     display: 'flex',
+    flexDirection: 'column',
     marginTop: '10px',
     paddingLeft: '10px',
     paddingRight: '10px',
@@ -207,25 +208,38 @@ const useStyles = makeStyles((theme) => ({
 
 
   homeFooterBar: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    width: 'auto'
+    position: 'fixed',
+    left: '0px',
+    right: '0px',
+    bottom: '0px',
+    width: 'auto',
+    height: '56px'
   },
   homeCard: {
     width: 'auto'
   },
   homeScroll: {
     display: 'flex',
+    position: 'relative',
+    paddingLeft: '15px', 
+    marginTop: '10px',
+    horizontal: 'true',
     gap: 1,
     overflow: 'auto',
-    width: 'auto',
-    scrollSnapType: 'x mandatory',
-    '& > *': {
-      scrollSnapAlign: 'center',
-    },
+    decelerationRate:'0',
+    snapToInterval:'200', //your element width
+    snapToAlignment:'center', 
+    overflow: 'auto', 
     '::-webkit-scrollbar': { display: 'none' },
+  },
+  titleHome: {
+    paddingLeft: '15px',
+    marginTop: '20px',
+    marginBottom: '0px',
+    height: '25px',
+    fontFamily: 'Helvetica',
+    fontSize: 'x-large',
+    color: '#1E1E1E',
   },
   navBarSup: {
     display: 'flex',
