@@ -16,11 +16,11 @@ import { useStyles } from './styles';
 //onClick={() => navigation.navigate('FavoritosRecetas')}
 
 
-const NavBarInf = ({navigation}) => {
+const NavBarInf = ({ navigation }) => {
   const classes = useStyles();
 
   const [value, setValue] = React.useState(0);
-  
+
   return (
     <Grid className={classes.homeFooterBar}>
       <Box>
@@ -31,10 +31,10 @@ const NavBarInf = ({navigation}) => {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction icon={<HomeOutlinedIcon style={{color: '#F1AE00'}} fontSize='large'/>}/>
-          <BottomNavigationAction icon={<SearchIcon style={{color: '#F1AE00'}} fontSize='large'/>} />
-          <BottomNavigationAction icon={<AddIcon style={{color: '#F1AE00'}} fontSize='large'/>}/>
-          <BottomNavigationAction icon={<BookmarksOutlinedIcon style={{color: '#F1AE00'}} fontSize='large'/>}/>
+          <BottomNavigationAction icon={<HomeOutlinedIcon style={{ color: '#F1AE00' }} fontSize='large' />} />
+          <BottomNavigationAction icon={<SearchIcon style={{ color: '#F1AE00' }} fontSize='large' />} />
+          <BottomNavigationAction icon={<AddIcon style={{ color: '#F1AE00' }} fontSize='large' onPress={() => navigation.navigate('CreacionReceta')}/> } />
+          <BottomNavigationAction icon={<BookmarksOutlinedIcon style={{ color: '#F1AE00' }} fontSize='large' />} />
         </BottomNavigation>
       </Box>
     </Grid>
