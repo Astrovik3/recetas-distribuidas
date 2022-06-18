@@ -101,6 +101,7 @@ const ResultadoBusqueda = () => {
                                 marginLeft: 1,
                                 maxHeight: { xs: 233, md: 167 },
                                 maxWidth: { xs: 350, md: 250 },
+                                borderRadius: 2
                             }}
                             alt="The house from the offer."
                             src={item.img}
@@ -146,22 +147,16 @@ const ResultadoBusqueda = () => {
                                     <Rating
                                         readOnly 
                                         name="hover-feedback"
-                                        value={value}
+                                        value={item.rating}
                                         precision={0.5}
                                         getLabelText={getLabelText}
-                                        onChange={(event, newValue) => {
-                                            setValue(newValue);
-                                        }}
-                                        onChangeActive={(event, newHover) => {
-                                            setHover(newHover);
-                                        }}
                                         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                     />
                                     {value !== null && (
-                                        <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+                                        <Box sx={{ ml: 2 , marginLeft: 1}}>{labels[hover !== -1 ? hover : item.rating]} </Box>
                                     )}
 
-                                    <BookmarkBorderOutlinedIcon />
+                                    <BookmarkBorderOutlinedIcon sx={{marginLeft: 4}}/>
                                 </Box>
 
                             </Box>
