@@ -24,7 +24,7 @@ const Recipe = ({navigation}) => {
   return (
     <Grid className={classes.containerReset}>
       <Grid className={classes.arrowBack} style={{position: 'absolute'}}>
-        <div style={{width: '35px', height: '35'}} onClick={() => navigation.navigate('Login')}>
+        <div style={{width: '35px', height: '35'}} onClick={() => navigation.navigate('Home')}>
           <ArrowBackIcon style={{color: '#F1AE00'}} fontSize='large'/>
         </div>
       </Grid>

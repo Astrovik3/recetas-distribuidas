@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@material-ui/core';
-import Box from '@mui/material/Box'; 
+import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -49,8 +49,28 @@ const itemData = [
   },
 ];
 
-const Home = ({navigation}) => {
+const labels = {
+  0.5: '0.5',
+  1: '1',
+  1.5: '1.5',
+  2: '2',
+  2.5: '2.5',
+  3: '3',
+  3.5: '3.5',
+  4: '4',
+  4.5: '4.5',
+  5: '5',
+};
+
+function getLabelText(value) {
+  return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
+}
+
+const Home = ({ navigation }) => {
   const classes = useStyles();
+
+  const [value, setValue] = React.useState(itemData[0].rating);
+  const [hover, setHover] = React.useState(-1);
 
 
   return (
@@ -61,9 +81,9 @@ const Home = ({navigation}) => {
 
       <div style={{ position: 'relative', top: '10px', backgroundColor: '#FCDC8C', width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '330px' }}>
         {itemData.map((item) => (
-          <ImageListItem key={item.img} style={{ borderRadius: '12px', width: '90%', height: '310px'}} onClick={() => navigation.navigate('Recipe')}>
+          <ImageListItem key={item.img} style={{ borderRadius: '12px', width: '90%', height: '310px' }} onClick={() => navigation.navigate('Recipe')}>
             <img
-              src={`${item.src}?w=248&fit=crop&auto=format`}
+              src={`${item.img}?w=248&fit=crop&auto=format`}
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
               alt={item.title}
               loading="lazy"
@@ -72,22 +92,40 @@ const Home = ({navigation}) => {
             <ImageListItemBar
               title={item.title}
               subtitle={item.author}
-              style={{ borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', }}
+              style={{ borderBottomLeftRadius: '12px', borderBottomRightRadius: '12px', height: '84px' }}
               actionIcon={
                 <IconButton
                   sx={{ color: 'orange' }}
                   aria-label={`info about ${item.title}`}
                 >
                   <Rating
-                    name="hover-feedback"
                     readOnly
+                    name="hover-feedback"
                     value={item.rating}
                     precision={0.5}
+                    style={{
+                      position: 'relative',
+                      bottom: '-30px',
+                      left: '-128px'
+                    }}
+                    getLabelText={getLabelText}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                    }}
+                    onChangeActive={(event, newHover) => {
+                      setHover(newHover);
+                    }}
+
                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                   />
+                  {value !== null && (
+                    <Box sx={{ ml: 2, position: 'relative', bottom: '-30px', left: '-128px' }}>
+                      {labels[hover !== -1 ? hover : value]}
+                    </Box>
+                  )}
+
                   <BookmarkBorderOutlinedIcon />
                 </IconButton>
-
               }
             />
           </ImageListItem>
@@ -105,7 +143,7 @@ const Home = ({navigation}) => {
                 borderRadius: '12px',
               }}
             >
-              <img style={{height: '170px', width: '170px', borderRadius: '12px'}} src={item.src} alt={item.title} />
+              <img style={{ height: '170px', width: '170px', borderRadius: '12px' }} src={item.src} alt={item.title} />
               <p >{item.title}</p>
             </Grid>
           ))}

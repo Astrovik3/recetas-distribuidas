@@ -16,7 +16,7 @@ const NavBarSup = () => {
 
   return (
     <Grid className={classes.navBarSup}>
-      <div>
+      <div onClick={() => navigation.navigate('Home')}>
         <ArrowBackIcon style={{color: '#F1AE00'}} fontSize='large'/>
       </div>
 
