@@ -15,10 +15,11 @@ const Login = ({ navigation }) => {
   const [userName, setName] = useState('');
   const [userPass, setPass] = useState('');
 
-  
+
   const test = () => {
     console.log(userName);
     console.log(userPass);
+    navigation.navigate('Home');
   }
 
 
