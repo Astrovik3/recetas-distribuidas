@@ -77,7 +77,7 @@ const Home = ({ navigation }) => {
     <Grid>
       <NavBarSup />
 
-      <p className={classes.titleHome}>Nuevo ingreso del día</p>
+      <p className={classes.titleHome}>Novedades</p>
 
       <div style={{ position: 'relative', top: '10px', backgroundColor: '#FCDC8C', width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '330px' }}>
         {itemData.map((item) => (
@@ -96,7 +96,7 @@ const Home = ({ navigation }) => {
               actionIcon={
                 <IconButton
                   sx={{ color: 'orange' }}
-                  aria-label={`info about ${item.title}`}
+                  aria-label={`favorito ${item.title}`}
                 >
                   <Rating
                     readOnly
@@ -136,16 +136,18 @@ const Home = ({ navigation }) => {
         <p className={classes.titleHome}> Recomendaciones </p>
         <Box className={classes.homeScroll} >
           {data.map((item) => (
-            <Grid
-              style={{
-                marginRight: '35px',
-                alignItems: 'center',
-                borderRadius: '12px',
-              }}
-            >
-              <img style={{ height: '170px', width: '170px', borderRadius: '12px' }} src={item.src} alt={item.title} />
-              <p >{item.title}</p>
-            </Grid>
+            <ImageListItem key={item.src} style={{ marginRight: '35px', alignItems: 'center', borderRadius: '12px' }}>
+              <img
+                style={{ height: '170px', width: '170px', borderRadius: '12px' }}
+                src={item.src}
+                alt={item.title}
+                loading="lazy"
+              />
+              <ImageListItemBar
+                title={item.title}
+                subtitle={item.author}
+              />
+            </ImageListItem>
           ))}
         </Box>
       </div>
@@ -157,4 +159,3 @@ const Home = ({ navigation }) => {
 }
 
 export default Home;
-
