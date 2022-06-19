@@ -4,15 +4,14 @@ import { Grid, TextField } from '@material-ui/core';
 
 import imgLogin from '../media/imgLogin.png';
 import { useStyles } from '../components/styles';
-//import { loginUser } from '../utils/recipesApi';
+import { loginUser } from '../utils/recipesApi';
 //import { searchRecipes } from '../utils/recipesApi';
-import { requestPasswordReset } from '../utils/recipesApi';
+//import { requestPasswordReset } from '../utils/recipesApi';
 
 const Login = ({ navigation }) => {
   //de aca me importo los estilos...
   const classes = useStyles();
 
-  //onPress={() => navigation.navigate('Home')}
   //console.warn('TEXTO AVISO WARN'); ---------- para cuando ingresan algun dato del login erroneo...
 
   //VER DE USAR REDUX??? VER..............................
@@ -20,38 +19,20 @@ const Login = ({ navigation }) => {
   const [userPass, setPass] = useState('');
 
 
-  const test = async () => {
-    //console.log(userName);
-    //console.log(userPass);
-
-    const userDataAPI = loginUser(userName, userPass);
+  const validateUser = async () => {
     //const userDataAPI = requestPasswordReset('testAlumno@mail.com');
     //const userDataAPI = await searchRecipes();
 
-    if(userDataAPI === 200) {
+    const userDataAPI = loginUser(userName, userPass);
+
+    console.log(userDataAPI);
+    if(userDataAPI == 200) {
       navigation.navigate('Home');
-
     } else {
-      console.warn('USUARIO INEXISTENTE');
+      //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
+      alert('USUARIO INEXISTENTE');
     }
-
-
-    //console.log();
   }
-
-
-  /*const findUserData = async () => {
-    let user = {
-      //acá debería volcar los datos que vienen de los TextField que uno ingresa...
-      user: {userName},
-      password: {userPass},
-    }
-
-    //este userLogin es del file UserController.java en repo de Ivan... 
-    const userDataAPI = await userLogin(user);
-  }*/
-
-
 
   return (
     <Grid className={classes.containerLogin}>
@@ -60,8 +41,20 @@ const Login = ({ navigation }) => {
 
       <Grid className={classes.gridLogin}>
         <Grid className={classes.inputLogin}>
-          <TextField fullWidth id="standard-basic" label="Usuario" variant="standard" value={userName} onChange={(event) => {setName(event.target.value)}}/>
-          <TextField fullWidth id="standard-basic" label="Contraseña" variant="standard" value={userPass} onChange={(event) => {setPass(event.target.value)}}/>
+          <TextField 
+            fullWidth id="standard-basic" 
+            label="Usuario" 
+            variant="standard" 
+            value={userName} 
+            onChange={(event) => {setName(event.target.value)}}
+          />
+          <TextField 
+            fullWidth id="standard-basic" 
+            label="Contraseña" 
+            variant="standard" 
+            value={userPass} 
+            onChange={(event) => {setPass(event.target.value)}}
+          />
         </Grid>
 
         <Grid className={classes.recuperarLogin}>
@@ -71,7 +64,7 @@ const Login = ({ navigation }) => {
         </Grid>
 
         <Grid className={classes.bttnLogin}>
-          <Button title='LOGIN' color={'#F1AE00'} onPress={test}/>
+          <Button title='LOGIN' color={'#F1AE00'} onPress={validateUser}/>
         </Grid>
 
         <Grid className={classes.textBelow}>

@@ -18,11 +18,12 @@ export const loginUser = async function (userName, userPass) {
       }) 
     });
 
-    if(response.status === 200) {
+    if(response.status == 200) {
       return 200;
     }
     else {
-      return response.status;
+      //return response.status;
+      return 404;
     }
       
   } catch (error) {
@@ -79,22 +80,18 @@ export const requestPasswordReset = async function (userMail) {
         email: userMail
       }) 
     });
-    
-    console.log('EN EL TRY' + response.status);
 
-    /*if(response.status === 200) {
-      return 200;
+    let datax = await response.json();
+
+    if(response.status == 200) {
+      return datax;
     }
     else {
-      return response.status;
-    }*/
-    let datax = await response.json();
-    console.log(datax);
-    return datax;
+      //return response.status;
+      return 404;
+    }
       
   } catch (error) {
-    console.log('EN EL CATCH ' + url);
-    console.log(error);
     return 500;
   }
 }
