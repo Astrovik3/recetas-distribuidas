@@ -8,18 +8,18 @@ import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import Box from '@mui/material/Box';
 import { useStyles } from './styles';
-
-
+import { useNavigation } from '@react-navigation/native';
 
 //onClick={() => navigation.navigate('Home')}
 //onClick={() => navigation.navigate('CreacionReceta')}
 //onClick={() => navigation.navigate('FavoritosRecetas')}
 
 
-const NavBarInf = ({ navigation }) => {
+const NavBarInf = () => {
   const classes = useStyles();
 
   const [value, setValue] = React.useState(0);
+  const navigation = useNavigation();
 
   return (
     <Grid className={classes.homeFooterBar}>
@@ -31,10 +31,10 @@ const NavBarInf = ({ navigation }) => {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction icon={<HomeOutlinedIcon style={{ color: '#F1AE00' }} fontSize='large' />} />
-          <BottomNavigationAction icon={<SearchIcon style={{ color: '#F1AE00' }} fontSize='large' />} />
-          <BottomNavigationAction icon={<AddIcon style={{ color: '#F1AE00' }} fontSize='large' onPress={() => navigation.navigate('CreacionReceta')}/> } />
-          <BottomNavigationAction icon={<BookmarksOutlinedIcon style={{ color: '#F1AE00' }} fontSize='large' />} />
+          <BottomNavigationAction icon={<HomeOutlinedIcon style={{ color: '#F1AE00' }} fontSize='large' onClick={() => navigation.navigate('Home')} />} />
+          <BottomNavigationAction icon={<SearchIcon style={{ color: '#F1AE00' }} fontSize='large' onClick={() => navigation.navigate('ResultadoBusqueda')} />} />
+          <BottomNavigationAction icon={<AddIcon style={{ color: '#F1AE00' }} fontSize='large' onClick={() => navigation.navigate('CreacionReceta')} />} />
+          <BottomNavigationAction icon={<BookmarksOutlinedIcon style={{ color: '#F1AE00' }} fontSize='large' onClick={() => navigation.navigate('FavoritosRecetas')} />} />
         </BottomNavigation>
       </Box>
     </Grid>

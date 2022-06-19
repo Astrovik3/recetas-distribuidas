@@ -72,7 +72,6 @@ const Home = ({ navigation }) => {
   const [value, setValue] = React.useState(itemData[0].rating);
   const [hover, setHover] = React.useState(-1);
 
-
   return (
     <Grid>
       <NavBarSup />

@@ -145,7 +145,7 @@ const ResultadoBusqueda = () => {
                                     }}
                                 >
                                     <Rating
-                                        readOnly 
+                                        readOnly
                                         name="hover-feedback"
                                         value={item.rating}
                                         precision={0.5}
@@ -153,10 +153,9 @@ const ResultadoBusqueda = () => {
                                         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                     />
                                     {value !== null && (
-                                        <Box sx={{ ml: 2 , marginLeft: 1}}>{labels[hover !== -1 ? hover : item.rating]} </Box>
+                                        <Box sx={{ ml: 2, marginLeft: 1 }}>{labels[hover !== -1 ? hover : item.rating]} </Box>
                                     )}
-
-                                    <BookmarkBorderOutlinedIcon sx={{marginLeft: 4}}/>
+                                    <BookmarkBorderOutlinedIcon sx={{ marginLeft: 4 }} />
                                 </Box>
 
                             </Box>
