@@ -4,7 +4,9 @@ import { Grid, TextField } from '@material-ui/core';
 
 import imgLogin from '../media/imgLogin.png';
 import { useStyles } from '../components/styles';
-import { loginUser } from '../utils/recipesApi';
+//import { loginUser } from '../utils/recipesApi';
+//import { searchRecipes } from '../utils/recipesApi';
+import { requestPasswordReset } from '../utils/recipesApi';
 
 const Login = ({ navigation }) => {
   //de aca me importo los estilos...
@@ -22,14 +24,19 @@ const Login = ({ navigation }) => {
     //console.log(userName);
     //console.log(userPass);
 
-    const par1 = "'" + userName + "'";
-    const par2 = "'" + userPass + "'";
-    const userDataAPI = loginUser(par1, par2);
-    
-    console.log(userDataAPI);
+    const userDataAPI = loginUser(userName, userPass);
+    //const userDataAPI = requestPasswordReset('testAlumno@mail.com');
+    //const userDataAPI = await searchRecipes();
 
-    //navigation.navigate('Home');
+    if(userDataAPI === 200) {
+      navigation.navigate('Home');
 
+    } else {
+      console.warn('USUARIO INEXISTENTE');
+    }
+
+
+    //console.log();
   }
 
 
