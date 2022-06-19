@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '110px',
     marginTop: '55px',
-    marginBottom: '60px',
+    marginBottom: '40px',
     justifyContent: 'center'
   },
   gridReset: {
@@ -77,15 +77,24 @@ const useStyles = makeStyles((theme) => ({
   },
   inputReset: {
     display: 'flex',
+    flexDirection: 'column',
     width: '80%',
-    marginTop: '25px',
-    justifyContent: 'center'
+    marginTop: '5px',
+    justifyItems: 'space-around'
   },
   bttnReset: {
     position: 'absolute',
     bottom: '16%',
     justifyContent: 'center',
     width: '60%'
+  },
+  avisos: {
+    display: 'flex',
+    height: '30px',
+    paddingTop: '5px',
+    bottom: '10px',
+    justifyContent: 'center',
+    alignContent: 'flex-start'
   },
 
   textTitles: {

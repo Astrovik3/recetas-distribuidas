@@ -14,7 +14,7 @@ const ResetPassword = ({navigation}) => {
 
   const sendCodeEmail = async () => {
     const userDataAPI = await requestPasswordReset(userMail);
-
+    console.log(userDataAPI);
     //SUPUSE QUE EL CÓDIGO DE VERIFICACIÓN ES MAYOR A 1000... SINO DESPUÉS SE CAMBIA LA LÓGICA...
     if(userDataAPI > 1000) {
       navigation.navigate('ResetPassword2', userDataAPI);
