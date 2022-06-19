@@ -4,22 +4,32 @@ import { Grid, TextField } from '@material-ui/core';
 
 import imgLogin from '../media/imgLogin.png';
 import { useStyles } from '../components/styles';
+import { loginUser } from '../utils/recipesApi';
 
 const Login = ({ navigation }) => {
   //de aca me importo los estilos...
   const classes = useStyles();
 
   //onPress={() => navigation.navigate('Home')}
+  //console.warn('TEXTO AVISO WARN'); ---------- para cuando ingresan algun dato del login erroneo...
 
   //VER DE USAR REDUX??? VER..............................
   const [userName, setName] = useState('');
   const [userPass, setPass] = useState('');
 
 
-  const test = () => {
-    console.log(userName);
-    console.log(userPass);
-    navigation.navigate('Home');
+  const test = async () => {
+    //console.log(userName);
+    //console.log(userPass);
+
+    const par1 = "'" + userName + "'";
+    const par2 = "'" + userPass + "'";
+    const userDataAPI = loginUser(par1, par2);
+    
+    console.log(userDataAPI);
+
+    //navigation.navigate('Home');
+
   }
 
 
@@ -59,7 +69,7 @@ const Login = ({ navigation }) => {
 
         <Grid className={classes.textBelow}>
           <Text style={{ color: '#757575' }}>
-            No tenés una cuenta? '
+            No tenés una cuenta? {' '}
             <Text style={{ fontWeight: 'bold', color: '#F1AE00' }} onPress={() => navigation.navigate('NewAccount')}>
               crear
             </Text>
