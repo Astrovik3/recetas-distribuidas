@@ -7,6 +7,7 @@ import Login from './screens/Login';
 import ResetPassword from './screens/ResetPassword';
 import ResetPassword2 from './screens/ResetPassword2';
 import NewAccount from './screens/NewAccount';
+import NewAccount2 from './screens/NewAccount2';
 import Recipe from './screens/Recipe';
 import Reviews from './screens/Reviews';
 import FavoritosRecetas from './screens/FavoritosRecetas';
@@ -27,6 +28,7 @@ const App = () => {
         <Stack.Screen name='ResetPassword' component={ResetPassword} />
         <Stack.Screen name='ResetPassword2' component={ResetPassword2} />
         <Stack.Screen name='NewAccount' component={NewAccount} />
+        <Stack.Screen name='NewAccount2' component={NewAccount2} />
         <Stack.Screen name='Recipe' component={Recipe} />
         <Stack.Screen name='Reviews' component={Reviews} />
         <Stack.Screen name='FavoritosRecetas' component={FavoritosRecetas} />

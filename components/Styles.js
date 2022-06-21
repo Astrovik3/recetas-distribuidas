@@ -33,7 +33,8 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '80%',
     marginTop: '10px',
-    height: '150px',
+    //VER ESTE PARA NEW ACCOUNT 2...
+    height: '210px',
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
@@ -128,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
 
   gridNewAccount: {
     display: 'flex',
-    marginTop: '90px',
+    marginTop: '50px',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'

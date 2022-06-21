@@ -31,6 +31,7 @@ export const loginUser = async function (userName, userPass) {
   }
 }
 
+
 export const searchRecipes = async function () {
   let url = urlWebServices.searchRecipes;
 
@@ -65,6 +66,7 @@ export const searchRecipes = async function () {
 
 }
 
+
 export const requestPasswordReset = async function (userMail) {
   let url = urlWebServices.requestPasswordReset;
 
@@ -95,3 +97,70 @@ export const requestPasswordReset = async function (userMail) {
     return 500;
   }
 }
+
+
+export const createAccount = async function (inputUser, inputPassword, inputEmail) {
+  let url = urlWebServices.createAccount;
+
+  try {
+    let response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        username: inputUser,
+        password: inputPassword,
+        email: inputEmail
+      }) 
+    });
+
+    if(response.status == 200) {
+      return 200;
+    }
+    else {
+      //return response.status;
+      return 404;
+    }
+      
+  } catch (error) {
+    return 500;
+  }
+}
+
+
+export const addAccountDetails = async function (userEmail, inputOneName, inputTwoName, inputAge, inputCountry) {
+  let url = urlWebServices.addAccountDetails;
+
+  try {
+    let response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: userEmail,
+        firstName: inputOneName,
+        lastName: inputTwoName,
+        age: inputAge,
+        country: inputCountry 
+      }) 
+    });
+
+    if(response.status == 200) {
+      return 200;
+    }
+    else {
+      //return response.status;
+      return 404;
+    }
+      
+  } catch (error) {
+    return 500;
+  }
+}
+

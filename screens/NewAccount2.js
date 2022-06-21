@@ -4,33 +4,33 @@ import { Grid, TextField } from '@material-ui/core';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import { useStyles } from '../components/styles';
-import { createAccount } from '../utils/recipesApi';
+import { addAccountDetails } from '../utils/recipesApi';
 
 
-
-const NewAccount = ({navigation}) => {
+const NewAccount2 = ({route, navigation}) => {
   const classes = useStyles();
 
-  const [inputEmail, setEmail] = useState('');
-  const [inputUser, setUser] = useState('');
-  const [inputPassword, setPassword] = useState('');
+  const userEmail = route.params;
+
+  const [inputOneName, setOneName] = useState('');
+  const [inputTwoName, setTwoName] = useState('');
+  const [inputAge, setAge] = useState('');
+  const [inputCountry, setCountry] = useState('');
   const [aviso, setAviso] = useState('');
 
-  const validateAccount = async () => {
-    const userDataAPI = await createAccount(inputEmail);
+  const addNewDataUser = async () => {
+    const userDataAPI = await addAccountDetails(userEmail, inputOneName, inputTwoName, inputAge, inputCountry);
     console.log(userDataAPI);
 
-    if(inputEmail == '' || inputUser == '' || inputPassword == ''){
+    if(inputOneName == '' || inputTwoName == '' || inputAge == '' || inputCountry == '') {
       setAviso('debe ingresar todos los datos');
 
     }else {
       if(userDataAPI == 200) {
-        navigation.navigate('NewAccount2', inputEmail);
-      }else if(userDataAPI == 500) {
-        //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-        setAviso('la cuenta ya existe');
+        navigation.navigate('Login');
       }else {
-        setAviso('hubo un problema en la creacón de la cuenta');
+        //CONTEMPLAR BIEN LOS DIFERENTES CASOS...
+        setAviso('hubo un problema en la carga de datos');
       }
     }
 
@@ -40,7 +40,7 @@ const NewAccount = ({navigation}) => {
   return (
     <Grid className={classes.containerReset}>
       <Grid className={classes.arrowBack}>
-        <div style={{width: '35px', height: '35'}} onClick={() => navigation.navigate('Login')}>
+        <div style={{width: '35px', height: '35'}} onClick={() => navigation.navigate('NewAccount')}>
           <ArrowBackIcon style={{color: '#F1AE00'}} fontSize='large'/>
         </div>
       </Grid>
@@ -54,34 +54,41 @@ const NewAccount = ({navigation}) => {
         <Grid className={classes.inputNewAccount}>
           <TextField 
             fullWidth id="standard-basic" 
-            label="Correo electrónico" 
+            label="Nombre" 
             variant="standard" 
-            value={inputEmail} 
-            onChange={(event) => {setEmail(event.target.value)}}
+            value={inputOneName} 
+            onChange={(event) => {setOneName(event.target.value)}}
           />
           <TextField 
             fullWidth id="standard-basic" 
-            label="Usuario" 
+            label="Apellido" 
             variant="standard" 
-            value={inputUser} 
-            onChange={(event) => {setUser(event.target.value)}}
+            value={inputTwoName} 
+            onChange={(event) => {setTwoName(event.target.value)}}
           />
           <TextField 
             fullWidth id="standard-basic" 
-            label="Contraseña" 
+            label="Edad" 
             variant="standard"
-            value={inputPassword} 
-            onChange={(event) => {setPassword(event.target.value)}}
+            value={inputAge} 
+            onChange={(event) => {setAge(event.target.value)}}
+          />
+          <TextField 
+            fullWidth id="standard-basic" 
+            label="País" 
+            variant="standard"
+            value={inputCountry} 
+            onChange={(event) => {setCountry(event.target.value)}}
           />
         </Grid>
         <Grid className={classes.avisos}>
           <Text style={{fontWeight: 'bold', color: '#ff2929'}}> {aviso} </Text>
         </Grid>
-
-        <Grid className={classes.bttnNewAccount}>
-          <Button title='continuar' color={'#F1AE00'} onPress={validateAccount}/>
-        </Grid>
         
+        <Grid className={classes.bttnNewAccount}>
+          <Button title='continuar' color={'#F1AE00'} onPress={addNewDataUser}/>
+        </Grid>
+
         <Grid className={classes.textBelow}>
           <Text style={{color: '#757575'}}>
             Haciendo click en continuar estás aceptando los {' '}
@@ -97,5 +104,5 @@ const NewAccount = ({navigation}) => {
 }
 
 
-export default NewAccount;
+export default NewAccount2;
 

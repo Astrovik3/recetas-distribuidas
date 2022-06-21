@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button } from 'react-native';
+import { Text, Button } from 'react-native';
 import { Grid, TextField } from '@material-ui/core';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
@@ -11,6 +11,7 @@ const ResetPassword = ({navigation}) => {
   const classes = useStyles();
   
   const [userMail, setMail] = useState('');
+  const [aviso, setAviso] = useState('');
 
   const sendCodeEmail = async () => {
     const userDataAPI = await requestPasswordReset(userMail);
@@ -20,10 +21,10 @@ const ResetPassword = ({navigation}) => {
       navigation.navigate('ResetPassword2', userDataAPI);
     } else if(userDataAPI == 404) {
       //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-      alert('EL CORREO ELECTRÓNICO INGRSADO NO EXISTE');
+      setAviso('el correo electrónico ingresado no existe');
     } else {
       //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-      alert('HUBO UN ERROR AL ENVIAR EL CÓDIGO DE VERIFICACIÓN');
+      setAviso('hubo un error al enviar el código de verificación');
     }
   }
 
@@ -51,6 +52,9 @@ const ResetPassword = ({navigation}) => {
             value={userMail} 
             onChange={(event) => {setMail(event.target.value)}}
           />
+          <Grid className={classes.avisos}>
+            <Text style={{fontWeight: 'bold', color: '#ff2929'}}> {aviso} </Text>
+          </Grid>
         </Grid>
 
         <Grid className={classes.bttnReset}>
