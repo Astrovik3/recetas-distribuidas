@@ -33,7 +33,6 @@ const NewAccount2 = ({route, navigation}) => {
         setAviso('hubo un problema en la carga de datos');
       }
     }
-
   }
 
 
