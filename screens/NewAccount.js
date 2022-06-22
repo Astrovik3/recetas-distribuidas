@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, Button } from 'react-native';
 import { Grid, TextField } from '@material-ui/core';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Alert } from '@mui/material';
 
 import { useStyles } from '../components/styles';
 import { createAccount } from '../utils/recipesApi';
@@ -21,16 +22,14 @@ const NewAccount = ({navigation}) => {
     console.log(userDataAPI);
 
     if(inputEmail == '' || inputUser == '' || inputPassword == ''){
-      setAviso('debe ingresar todos los datos');
-
+      setAviso(<Alert severity="error">Debe ingresar todos los datos</Alert>);
     }else {
       if(userDataAPI == 200) {
         navigation.navigate('NewAccount2', inputEmail);
       }else if(userDataAPI == 500) {
-        //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-        setAviso('la cuenta ya existe');
+        setAviso(<Alert severity="error">La cuenta ya existe</Alert>);
       }else {
-        setAviso('hubo un problema en la creacón de la cuenta');
+        setAviso(<Alert severity="error">Hubo un problema en la creación</Alert>);
       }
     }
 
@@ -75,7 +74,7 @@ const NewAccount = ({navigation}) => {
           />
         </Grid>
         <Grid className={classes.avisos}>
-          <Text style={{fontWeight: 'bold', color: '#ff2929'}}> {aviso} </Text>
+          {aviso}
         </Grid>
 
         <Grid className={classes.bttnNewAccount}>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, Button } from 'react-native';
 import { Grid, TextField } from '@material-ui/core';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Alert } from '@mui/material';
 
 import { useStyles } from '../components/styles';
 import { addAccountDetails } from '../utils/recipesApi';
@@ -23,14 +24,16 @@ const NewAccount2 = ({route, navigation}) => {
     console.log(userDataAPI);
 
     if(inputOneName == '' || inputTwoName == '' || inputAge == '' || inputCountry == '') {
-      setAviso('debe ingresar todos los datos');
+      setAviso(<Alert severity="error">Debe ingresar todos los datos</Alert>);
 
     }else {
       if(userDataAPI == 200) {
-        navigation.navigate('Login');
+        setAviso(<Alert severity="success">Bienvenido, {inputOneName}!</Alert>);
+        setTimeout(() => {
+          navigation.navigate('Login');
+        }, 1500);
       }else {
-        //CONTEMPLAR BIEN LOS DIFERENTES CASOS...
-        setAviso('hubo un problema en la carga de datos');
+        setAviso(<Alert severity="error">Hubo un problema en la carga</Alert>);
       }
     }
   }
@@ -81,7 +84,7 @@ const NewAccount2 = ({route, navigation}) => {
           />
         </Grid>
         <Grid className={classes.avisos}>
-          <Text style={{fontWeight: 'bold', color: '#ff2929'}}> {aviso} </Text>
+          {aviso} 
         </Grid>
         
         <Grid className={classes.bttnNewAccount}>

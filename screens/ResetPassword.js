@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, Button } from 'react-native';
 import { Grid, TextField } from '@material-ui/core';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Alert } from '@mui/material';
 
 import imgReset from '../media/imgReset.png';
 import { useStyles } from '../components/styles';
@@ -13,18 +14,18 @@ const ResetPassword = ({navigation}) => {
   const [userMail, setMail] = useState('');
   const [aviso, setAviso] = useState('');
 
+
   const sendCodeEmail = async () => {
     const userDataAPI = await requestPasswordReset(userMail);
     console.log(userDataAPI);
+    
     //SUPUSE QUE EL CÓDIGO DE VERIFICACIÓN ES MAYOR A 1000... SINO DESPUÉS SE CAMBIA LA LÓGICA...
     if(userDataAPI > 1000) {
       navigation.navigate('ResetPassword2', userDataAPI);
     } else if(userDataAPI == 404) {
-      //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-      setAviso('el correo electrónico ingresado no existe');
+      setAviso(<Alert severity="error">El correo electrónico no existe</Alert>);
     } else {
-      //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-      setAviso('hubo un error al enviar el código de verificación');
+      setAviso(<Alert severity="error">Hubo un error al enviar el código</Alert>);
     }
   }
 
@@ -53,7 +54,7 @@ const ResetPassword = ({navigation}) => {
             onChange={(event) => {setMail(event.target.value)}}
           />
           <Grid className={classes.avisos}>
-            <Text style={{fontWeight: 'bold', color: '#ff2929'}}> {aviso} </Text>
+            {aviso}
           </Grid>
         </Grid>
 
