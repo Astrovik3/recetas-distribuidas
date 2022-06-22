@@ -21,7 +21,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='Home' screenOptions={{headerShown: false}}>
 
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Home' component={Home} />
@@ -43,13 +43,5 @@ const App = () => {
     </NavigationContainer>
   );
 }
-
-/*
-Por default creo que me crea una especie de navbar... ahí le clavé el navbar... VER BIEN SI SE PUEDE SACAR...
-<Stack.Screen name='Login' component={Login} options={{title: <NavBar />}}/>
-
-DE ESTA FORMA SUPLANTAS LA NAVBAR QUE VIENE POR DEFECTO POR UNA QUE SE HAGA CUSTOM...
-<Stack.Screen name='Home' component={Home} options={{header: () => <NavBar />}}/>
-*/
 
 export default App;

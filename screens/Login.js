@@ -5,7 +5,8 @@ import { Alert } from '@mui/material';
 
 import imgLogin from '../media/imgLogin.png';
 import { useStyles } from '../components/styles';
-import { loginUser, searchRecipes } from '../utils/recipesApi';
+import { loginUser } from '../utils/recipesApi';
+//, searchRecipes
 
 const Login = ({ navigation }) => {
   //de aca me importo los estilos...
@@ -27,13 +28,13 @@ const Login = ({ navigation }) => {
     if(userDataAPI == 200) {
       setAviso(<Alert severity="success">Todo en orden</Alert>);
 
-      const recipeDataApi = await searchRecipes();
+      //const recipeDataApi = await searchRecipes();
       //console.log(recipeDataApi);
       
-      const recipesForHome = recipeDataApi.slice(0, 3);
+      //const recipesForHome = recipeDataApi.slice(0, 3);
 
       setTimeout(() => {
-        navigation.navigate('Home', recipesForHome);
+        navigation.navigate('Home');
       }, 2000);
     } 
     else {
