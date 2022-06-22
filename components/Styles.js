@@ -33,7 +33,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '80%',
     marginTop: '10px',
-    //VER ESTE PARA NEW ACCOUNT 2...
     height: '210px',
     flexDirection: 'column',
     justifyContent: 'space-around'
@@ -43,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
     height: '300px'
   },
   bttnLogin: {
-    marginTop: '24%',
+    position: 'absolute',
+    bottom: '16%',
     justifyContent: 'center',
     width: '60%'
   },
@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avisos: {
     display: 'flex',
-    height: '30px',
+    height: '60px',
     paddingTop: '5px',
     bottom: '10px',
     justifyContent: 'center',

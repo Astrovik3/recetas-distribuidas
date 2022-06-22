@@ -16,27 +16,6 @@ import { useStyles } from '../components/styles';
 
 
 
-const data = [
-  {
-    src: 'https://images.unsplash.com/photo-1502657877623-f66bf489d236?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2369',
-    title: 'Night view',
-    description: '4.21M views',
-    author: '@silverdalex',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1527549993586-dff825b37782?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270',
-    title: 'Lake view',
-    description: '4.74M views',
-    author: '@silverdalex',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1532614338840-ab30cf10ed36?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3270',
-    title: 'Mountain view',
-    description: '3.98M views',
-    author: '@silverdalex',
-  },
-];
-
 const itemData = [
   {
     img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
@@ -49,28 +28,18 @@ const itemData = [
   },
 ];
 
-const labels = {
-  0.5: '0.5',
-  1: '1',
-  1.5: '1.5',
-  2: '2',
-  2.5: '2.5',
-  3: '3',
-  3.5: '3.5',
-  4: '4',
-  4.5: '4.5',
-  5: '5',
-};
 
-function getLabelText(value) {
+/*function getLabelText(value) {
   return `${value} Star${value !== 1 ? 's' : ''}, ${labels[value]}`;
-}
+}*/
 
-const Home = ({ navigation }) => {
+const Home = ({route, navigation}) => {
   const classes = useStyles();
 
   const [value, setValue] = React.useState(itemData[0].rating);
   const [hover, setHover] = React.useState(-1);
+
+  const threeRecipes = route.params;
 
   return (
     <Grid>
@@ -79,6 +48,18 @@ const Home = ({ navigation }) => {
       <p className={classes.titleHome}>Novedades</p>
 
       <div style={{ position: 'relative', top: '10px', backgroundColor: '#FCDC8C', width: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '330px' }}>
+        <ImageListItem key={item.img} style={{ borderRadius: '12px', width: '90%', height: '310px' }} onClick={() => navigation.navigate('Recipe')}>
+          <img
+            src={`${item.img}?w=248&fit=crop&auto=format`}
+            srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
+            alt={item.title}
+            loading="lazy"
+            style={{ borderRadius: '12px' }}
+          />
+        
+
+        </ImageListItem>
+
         {itemData.map((item) => (
           <ImageListItem key={item.img} style={{ borderRadius: '12px', width: '90%', height: '310px' }} onClick={() => navigation.navigate('Recipe')}>
             <img
@@ -106,14 +87,7 @@ const Home = ({ navigation }) => {
                       position: 'relative',
                       bottom: '-30px',
                       left: '-128px'
-                    }}
-                    getLabelText={getLabelText}
-                    onChange={(event, newValue) => {
-                      setValue(newValue);
-                    }}
-                    onChangeActive={(event, newHover) => {
-                      setHover(newHover);
-                    }}
+                    }} 
 
                     emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                   />

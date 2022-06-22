@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Text, Button } from 'react-native';
 import { Grid, TextField } from '@material-ui/core';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Alert } from '@mui/material';
 
 import imgReset from '../media/imgReset.png';
 import { useStyles } from '../components/styles';
@@ -18,13 +19,16 @@ const ResetPassword2 = ({route, navigation}) => {
 
   const validateCode = () => {
     if(codigoEnviado !== parseInt(inputCode)) {
-      //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-      setAviso('el código ingresado no es el mismo');
-    }else if(inputPass1 !== inputPass2) {
-      //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-      setAviso('las contraseñas ingresadas no coinciden');
-    }else if(codigoEnviado == parseInt(inputCode) && inputPass1 == inputPass2) {
-      navigation.navigate('Login');
+      setAviso(<Alert severity="error">El código ingresado no coincide</Alert>);
+    }
+    else if(inputPass1 !== inputPass2) {
+      setAviso(<Alert severity="error">Las contraseñas no coinciden</Alert>);
+    }
+    else if(codigoEnviado == parseInt(inputCode) && inputPass1 == inputPass2) {
+      setAviso(<Alert severity="success">Todo en orden</Alert>);
+      setTimeout(() => {
+        navigation.navigate('Login');
+      }, 1500);
     }
   }
 
@@ -66,7 +70,7 @@ const ResetPassword2 = ({route, navigation}) => {
             onChange={(event) => {setPass2(event.target.value)}}
           />
           <Grid className={classes.avisos}>
-            <Text style={{fontWeight: 'bold', color: '#ff2929'}}> {aviso} </Text>
+            {aviso}
           </Grid>
         </Grid>
 

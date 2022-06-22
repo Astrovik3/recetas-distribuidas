@@ -1,36 +1,46 @@
 import React, { useState } from 'react';
 import { Text, Button } from 'react-native';
 import { Grid, TextField } from '@material-ui/core';
+import { Alert } from '@mui/material';
 
 import imgLogin from '../media/imgLogin.png';
 import { useStyles } from '../components/styles';
-import { loginUser } from '../utils/recipesApi';
-//import { searchRecipes } from '../utils/recipesApi';
-//import { requestPasswordReset } from '../utils/recipesApi';
+import { loginUser, searchRecipes } from '../utils/recipesApi';
 
 const Login = ({ navigation }) => {
   //de aca me importo los estilos...
   const classes = useStyles();
 
-  //console.warn('TEXTO AVISO WARN'); ---------- para cuando ingresan algun dato del login erroneo...
-
   //VER DE USAR REDUX??? VER..............................
   const [userName, setName] = useState('');
   const [userPass, setPass] = useState('');
+  const [aviso, setAviso] = useState('');
 
 
   const validateUser = async () => {
     //const userDataAPI = requestPasswordReset('testAlumno@mail.com');
     //const userDataAPI = await searchRecipes();
 
-    const userDataAPI = loginUser(userName, userPass);
+    const userDataAPI = await loginUser(userName, userPass);
 
-    console.log(userDataAPI);
+    //console.log(userDataAPI);
     if(userDataAPI == 200) {
-      navigation.navigate('Home');
-    } else {
-      //ESTE AVISO SE DEBERÍA HACER MÁS LINDO...
-      alert('USUARIO INEXISTENTE');
+      setAviso(<Alert severity="success">Todo en orden</Alert>);
+
+      const recipeDataApi = await searchRecipes();
+      //console.log(recipeDataApi);
+      
+      const recipesForHome = recipeDataApi.slice(0, 3);
+
+      setTimeout(() => {
+        navigation.navigate('Home', recipesForHome);
+      }, 2000);
+    } 
+    else {
+      setAviso(<Alert severity="error">El usuario no existe</Alert>);
+      setTimeout(() => {
+        setAviso('');
+      }, 1500);
     }
   }
 
@@ -61,6 +71,9 @@ const Login = ({ navigation }) => {
           <Text style={{ fontWeight: 'bold', color: '#F1AE00' }} onPress={() => navigation.navigate('ResetPassword')}>
             Me olvidé la contraseña
           </Text>
+        </Grid>
+        <Grid className={classes.avisos}>
+          {aviso}
         </Grid>
 
         <Grid className={classes.bttnLogin}>
