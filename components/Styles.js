@@ -259,6 +259,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     
+  },
+
+  mainRecetaHome: {
+    display: 'flex', 
+    width: 'auto', 
+    height: '330px', 
+    position: 'relative', 
+    top: '10px', 
+    backgroundColor: '#FCDC8C', 
+    flexDirection: 'column', 
+    justifyContent: 'center', 
+    alignItems: 'center'
   }
 
 
