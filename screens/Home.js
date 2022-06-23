@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
-//import Box from '@mui/material/Box';
+import Box from '@mui/material/Box';
 //import IconButton from '@mui/material/IconButton';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
@@ -14,6 +14,7 @@ import NavBarSup from '../components/NavBarSup';
 import NavBarInf from '../components/NavBarInf';
 import { useStyles } from '../components/styles';
 import { searchRecipes } from '../utils/recipesApi';
+import recetaTest from '../media/recetaTest.png';
 
 
 
@@ -23,8 +24,8 @@ const Home = ({navigation}) => {
 
   const [foodData, setFoodData] = useState('');
   const [userData, setUserData] = useState('');
-  const [foodRating, setRating] = useState();
-  const [recipesScroll, setRecipesScroll] = useState('');
+  const [foodRating, setRating] = useState('');
+  const [recipesScroll, setRecipesScroll] = useState([]);
 
   const validateUser = async () => {
     const recipeDataApi = await searchRecipes();
@@ -33,19 +34,19 @@ const Home = ({navigation}) => {
     setFoodData(recipeDataApi[0]);
     setUserData(recipeDataApi[0].user);
 
-    setRecipesScroll(recipeDataApi);
+
+    setRecipesScroll(recipeDataApi.slice(0, 3));
     //console.log(recipeDataApi);
     //console.log(recipeDataApi.slice(0,3));
 
     const avgRating = recipeDataApi[0].ratingSet.map(item => item.rating).reduce((a, b) => a + b, 0);
     setRating(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
 
+    
     //console.log(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
-    //const sum = times.reduce((a, b) => a + b, 0);
-    //const avg = (sum / times.length) || 0;
   }
   validateUser();
-
+  
   //const userData = Object.assign(name.user);
   //console.log(name.user);
 
@@ -55,7 +56,7 @@ const Home = ({navigation}) => {
 
       <p className={classes.titleHome}> Novedades </p>
       <div className={classes.mainRecetaHome}>
-        <ImageListItem style={{ borderRadius: '12px', width: '90%', height: '310px' }} onClick={() => navigation.navigate('Recipe')}>
+        <ImageListItem style={{borderRadius: '12px', width: '90%', height: '310px'}} onClick={() => navigation.navigate('Recipe')}>
           
           <ImageListItemBar  
             title={<div style={{padding: '0px'}}> {`${foodData.name}`} </div>}
@@ -77,10 +78,27 @@ const Home = ({navigation}) => {
         </ImageListItem>
 
       </div>
-      
 
 
+      <div style={{position: 'relative', top: '20px'}}>
+        <p className={classes.titleHome}> Recomendaciones </p>
 
+        <Box className={classes.homeScroll} >
+
+          {recipesScroll.map((item) => (
+            <ImageListItem style={{marginRight: '35px', alignItems: 'center', borderRadius: '12px'}} onClick={() => navigation.navigate('Recipe')}>
+              <img
+                style={{height: '170px', width: '170px', borderRadius: '12px'}}
+                src={recetaTest}
+                alt='test'
+              />
+              <ImageListItemBar
+                title={item.name}
+              />
+            </ImageListItem>
+          ))}
+        </Box>
+      </div>
       
 
 
@@ -92,22 +110,25 @@ const Home = ({navigation}) => {
 
 export default Home;
 
-/*<div style={{ position: 'relative', top: '20px' }}>
+
+/* 
+<div style={{position: 'relative', top: '20px'}}>
         <p className={classes.titleHome}> Recomendaciones </p>
+
         <Box className={classes.homeScroll} >
-          {data.map((item) => (
-            <ImageListItem key={item.src} style={{ marginRight: '35px', alignItems: 'center', borderRadius: '12px' }}>
+
+          {recipesScroll .map((item) => (
+            <ImageListItem style={{marginRight: '35px', alignItems: 'center', borderRadius: '12px'}} onClick={() => navigation.navigate('Recipe')}>
               <img
-                style={{ height: '170px', width: '170px', borderRadius: '12px' }}
-                src={item.src}
-                alt={item.title}
-                loading="lazy"
+                style={{height: '170px', width: '170px', borderRadius: '12px'}}
+                src={recetaTest}
+                alt='test'
               />
               <ImageListItemBar
-                title={item.title}
-                subtitle={item.author}
+                title={item.name}
               />
             </ImageListItem>
           ))}
         </Box>
-      </div>*/
+      </div>
+*/
