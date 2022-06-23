@@ -15,6 +15,7 @@ import NavBarInf from '../components/NavBarInf';
 import { useStyles } from '../components/styles';
 import { searchRecipes } from '../utils/recipesApi';
 import recetaTest from '../media/recetaTest.png';
+import imagenComida01 from '../media/imagenComida01.png';
 
 
 
@@ -57,7 +58,10 @@ const Home = ({navigation}) => {
       <p className={classes.titleHome}> Novedades </p>
       <div className={classes.mainRecetaHome}>
         <ImageListItem style={{borderRadius: '12px', width: '90%', height: '310px'}} onClick={() => navigation.navigate('Recipe')}>
-          
+          <img 
+            style={{borderRadius: '12px'}}
+            src={imagenComida01} />
+
           <ImageListItemBar  
             title={<div style={{padding: '0px'}}> {`${foodData.name}`} </div>}
             subtitle={'por ' + `${userData.name}`}
