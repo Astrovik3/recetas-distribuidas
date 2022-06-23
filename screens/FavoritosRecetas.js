@@ -77,7 +77,7 @@ const Favoritos = () => {
                 />
             </div>
 
-            <ImageList sx={{ width: '100%', height: '80%' }} cols={3} rowHeight={164}>
+            <ImageList sx={{ width: '100%', height: '80%' }} cols={2} rowHeight={164}>
                 {itemData.map((item) => (
                     <ImageListItem key={item.img}>
                         <img

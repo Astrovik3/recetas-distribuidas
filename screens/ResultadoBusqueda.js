@@ -146,7 +146,7 @@ const ResultadoBusqueda = () => {
                                     <Rating
                                         readOnly 
                                         name="hover-feedback"
-                                        value={value}
+                                        value={item.rating}
                                         precision={0.5}
                                         getLabelText={getLabelText}
                                         onChange={(event, newValue) => {
@@ -158,7 +158,7 @@ const ResultadoBusqueda = () => {
                                         emptyIcon={<StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />}
                                     />
                                     {value !== null && (
-                                        <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : value]}</Box>
+                                        <Box sx={{ ml: 2 }}>{labels[hover !== -1 ? hover : item.rating]}</Box>
                                     )}
 
                                     <BookmarkBorderOutlinedIcon />
