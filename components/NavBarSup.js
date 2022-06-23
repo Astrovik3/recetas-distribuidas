@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid } from '@material-ui/core';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import { useNavigation } from '@react-navigation/native';
 
 import { useStyles } from '../components/styles';
 
@@ -12,7 +13,7 @@ import { useStyles } from '../components/styles';
 
 const NavBarSup = () => {
   const classes = useStyles();
-
+  const navigation = useNavigation();
 
   return (
     <Grid className={classes.navBarSup}>

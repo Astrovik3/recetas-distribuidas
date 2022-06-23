@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     width: '80%',
     marginTop: '10px',
-    height: '150px',
+    height: '210px',
     flexDirection: 'column',
     justifyContent: 'space-around'
   },
@@ -42,7 +42,8 @@ const useStyles = makeStyles((theme) => ({
     height: '300px'
   },
   bttnLogin: {
-    marginTop: '24%',
+    position: 'absolute',
+    bottom: '16%',
     justifyContent: 'center',
     width: '60%'
   },
@@ -66,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: '110px',
     marginTop: '55px',
-    marginBottom: '60px',
+    marginBottom: '40px',
     justifyContent: 'center'
   },
   gridReset: {
@@ -77,15 +78,24 @@ const useStyles = makeStyles((theme) => ({
   },
   inputReset: {
     display: 'flex',
+    flexDirection: 'column',
     width: '80%',
-    marginTop: '25px',
-    justifyContent: 'center'
+    marginTop: '5px',
+    justifyItems: 'space-around'
   },
   bttnReset: {
     position: 'absolute',
     bottom: '16%',
     justifyContent: 'center',
     width: '60%'
+  },
+  avisos: {
+    display: 'flex',
+    height: '60px',
+    paddingTop: '5px',
+    bottom: '10px',
+    justifyContent: 'center',
+    alignContent: 'flex-start'
   },
 
   textTitles: {
@@ -119,7 +129,7 @@ const useStyles = makeStyles((theme) => ({
 
   gridNewAccount: {
     display: 'flex',
-    marginTop: '90px',
+    marginTop: '50px',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
@@ -249,6 +259,18 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     alignItems: 'center',
     
+  },
+
+  mainRecetaHome: {
+    display: 'flex', 
+    width: 'auto', 
+    height: '330px', 
+    position: 'relative', 
+    top: '10px', 
+    backgroundColor: '#FCDC8C', 
+    flexDirection: 'column', 
+    justifyContent: 'center', 
+    alignItems: 'center'
   }
 
 
