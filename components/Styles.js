@@ -169,8 +169,7 @@ const useStyles = makeStyles((theme) => ({
     height: '35px',
     color: '#6A6A6A',
     fontFamily: 'Helvetica',
-    justifyContent: 'space-between',
-    borderBottom: 'solid #1E1E1E 1px'
+    justifyContent: 'space-between'
   },
   commentsReview: {
     display: 'flex',
@@ -271,6 +270,22 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column', 
     justifyContent: 'center', 
     alignItems: 'center'
+  },
+  titleSearch: {
+    paddingLeft: '10px',
+    marginTop: '5px',
+    marginBottom: '5px',
+    height: '20px',
+    fontFamily: 'Helvetica',
+    fontSize: 'large',
+    color: '#1E1E1E',
+  },
+  authorSearch: {
+    display: 'flex',
+    marginBottom: '20px',
+    paddingLeft: '10px',
+    color: '#6A6A6A',
+    fontFamily: 'Helvetica',
   }
 
 

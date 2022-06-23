@@ -67,6 +67,42 @@ export const searchRecipes = async function () {
 }
 
 
+export const searchSomeRecipes = async function (filtro, inputSearch) {
+  let url = urlWebServices.searchRecipes + '?filterBy=' + filtro + '&value=' + inputSearch;
+
+  console.log(url);
+  try {
+    let response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      }
+    });
+     
+    let datax = await response.json();
+
+    //console.log('EN EL TRY response ' + response);
+    //console.log('EN EL TRY' + response.status);
+
+    /*if(response.status === 200) {
+      return response;
+    }
+    else {
+      return response.status;
+    }*/
+    return datax;
+
+  } catch (error) {
+    console.log('EN EL CATCH ' + url);
+    console.log(error);
+    return 500;
+  }
+
+}
+
+
 export const requestPasswordReset = async function (userMail) {
   let url = urlWebServices.requestPasswordReset;
 
