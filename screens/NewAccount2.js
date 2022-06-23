@@ -36,7 +36,6 @@ const NewAccount2 = ({route, navigation}) => {
         setAviso(<Alert severity="error">Hubo un problema en la carga</Alert>);
       }
     }
-
   }
 
 

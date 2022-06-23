@@ -21,7 +21,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='CreacionReceta' screenOptions={{headerShown: false}}>
 
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Home' component={Home} />
@@ -34,6 +34,7 @@ const App = () => {
         <Stack.Screen name='FavoritosRecetas' component={FavoritosRecetas} />
         <Stack.Screen name='ResultadoBusqueda' component={ResultadoBusqueda} />
         <Stack.Screen name='CreacionReceta' component={CreacionReceta} />
+
 
         
         <Stack.Screen name='NavBarSup' component={NavBarSup} navigation={navigation}/>
