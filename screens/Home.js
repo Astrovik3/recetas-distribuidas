@@ -32,6 +32,7 @@ const Home = ({navigation}) => {
     const recipeDataApi = await searchRecipes();
     //console.log(recipeDataApi);
 
+    //controlar si es 200, 404 o 500..........................
     setFoodData(recipeDataApi[0]);
     setUserData(recipeDataApi[0].user);
 
