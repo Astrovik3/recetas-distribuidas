@@ -59,12 +59,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: '#F4F4F4',
     justifyContent: 'center',
     height: '100%',
-    margin: '0px'
-
+    margin: '0px',
+    overflow: 'hidden',
   },
   imgReset: {
     display: 'flex',
-    width: '100%',
+    width: 'auto',
     height: '110px',
     marginTop: '55px',
     marginBottom: '40px',

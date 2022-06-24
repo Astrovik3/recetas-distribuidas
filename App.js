@@ -21,11 +21,7 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-<<<<<<< HEAD
-      <Stack.Navigator initialRouteName='FavoritosRecetas' screenOptions={{headerShown: false}}>
-=======
-      <Stack.Navigator initialRouteName='CreacionReceta' screenOptions={{headerShown: false}}>
->>>>>>> 517ec327fefc00b4a5426127a28d94c2c584baaf
+      <Stack.Navigator initialRouteName='Login' screenOptions={{headerShown: false}}>
 
         <Stack.Screen name='Login' component={Login} />
         <Stack.Screen name='Home' component={Home} />

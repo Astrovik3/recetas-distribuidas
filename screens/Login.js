@@ -25,6 +25,7 @@ const Login = ({ navigation }) => {
     const userDataAPI = await loginUser(userName, userPass);
 
     //console.log(userDataAPI);
+
     if(userDataAPI == 200) {
       setAviso(<Alert severity="success">Todo en orden</Alert>);
 

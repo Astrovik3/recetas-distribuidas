@@ -23,7 +23,7 @@ import { searchSomeRecipes } from '../utils/recipesApi';
 
 
 
-const ResultadoBusqueda = () => {
+const ResultadoBusqueda = ({ navigation }) => {
   const classes = useStyles();
 
   const [inputSearch, setInputSearch] = useState('');
@@ -56,10 +56,10 @@ const ResultadoBusqueda = () => {
               Filtros 
             </InputLabel>
             <Select labelId="simple-select-label" id="simple-select" value={filtro} label="Filtros" onChange={handleChange} style={{backgroundColor: '#F4F4F4'}}>
-              <MenuItem value={'autor'}> Autor </MenuItem>
+              <MenuItem value={'usuario'}> Autor </MenuItem>
               <MenuItem value={'categoría'}> Categoría </MenuItem>
               <MenuItem value={'ingrediente'}> Ingrediente </MenuItem>
-              <MenuItem value={'no ingrediente'}> No ingrediente </MenuItem>
+              <MenuItem value={'noingrediente'}> No ingrediente </MenuItem>
               <MenuItem value={'nombre'}> Nombre </MenuItem>
             </Select>
           </FormControl>
@@ -86,7 +86,10 @@ const ResultadoBusqueda = () => {
 
       <Grid>
         {recipesScroll.map((item) => (
-          <ResultRecipe name={item.name} author={item.user.name}/>
+          <div onClick={() => navigation.navigate('Recipe')}>
+            <ResultRecipe name={item.name} author={item.user.name}/>
+          </div>
+          
         ))}
 
       </Grid>

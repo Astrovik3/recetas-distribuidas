@@ -17,6 +17,31 @@ import { searchRecipes } from '../utils/recipesApi';
 import recetaTest from '../media/recetaTest.png';
 import imagenComida01 from '../media/imagenComida01.png';
 
+const [foodData, setFoodData] = useState('');
+const [userData, setUserData] = useState('');
+const [foodRating, setRating] = useState('');
+const [recipesScroll, setRecipesScroll] = useState([]);
+
+const validateUser = async () => {
+  const recipeDataApi = await searchRecipes();
+  //console.log(recipeDataApi);
+
+  //controlar si es 200, 404 o 500..........................
+  setFoodData(recipeDataApi[0]);
+  setUserData(recipeDataApi[0].user);
+
+
+  setRecipesScroll(recipeDataApi.slice(0, 3));
+  //console.log(recipeDataApi);
+  //console.log(recipeDataApi.slice(0,3));
+
+  const avgRating = recipeDataApi[0].ratingSet.map(item => item.rating).reduce((a, b) => a + b, 0);
+  setRating(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
+
+  
+  //console.log(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
+}
+
 
 
 
@@ -30,10 +55,12 @@ const Home = ({navigation}) => {
 
   const validateUser = async () => {
     const recipeDataApi = await searchRecipes();
+
+    validateUser();
     //console.log(recipeDataApi);
 
     //controlar si es 200, 404 o 500..........................
-    setFoodData(recipeDataApi[0]);
+    /*setFoodData(recipeDataApi[0]);
     setUserData(recipeDataApi[0].user);
 
 
@@ -47,7 +74,7 @@ const Home = ({navigation}) => {
     
     //console.log(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
   }
-  validateUser();
+  validateUser();*/
   
   //const userData = Object.assign(name.user);
   //console.log(name.user);
@@ -114,26 +141,3 @@ const Home = ({navigation}) => {
 }
 
 export default Home;
-
-
-/* 
-<div style={{position: 'relative', top: '20px'}}>
-        <p className={classes.titleHome}> Recomendaciones </p>
-
-        <Box className={classes.homeScroll} >
-
-          {recipesScroll .map((item) => (
-            <ImageListItem style={{marginRight: '35px', alignItems: 'center', borderRadius: '12px'}} onClick={() => navigation.navigate('Recipe')}>
-              <img
-                style={{height: '170px', width: '170px', borderRadius: '12px'}}
-                src={recetaTest}
-                alt='test'
-              />
-              <ImageListItemBar
-                title={item.name}
-              />
-            </ImageListItem>
-          ))}
-        </Box>
-      </div>
-*/
