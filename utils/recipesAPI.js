@@ -135,6 +135,38 @@ export const requestPasswordReset = async function (userMail) {
 }
 
 
+export const passwordReset = async function (userMail, codigoEnviado, inputPass2) {
+  let url = urlWebServices.passwordReset;
+
+  try {
+    let response = await fetch(url, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: userMail,
+        resetToken: codigoEnviado,
+        newPassword: inputPass2
+      }) 
+    });
+
+    if(response.status == 200) {
+      return datax;
+    }
+    else {
+      //return response.status;
+      return 404;
+    }
+      
+  } catch (error) {
+    return 500;
+  }
+}
+
+
 export const createAccount = async function (inputUser, inputPassword, inputEmail) {
   let url = urlWebServices.createAccount;
 

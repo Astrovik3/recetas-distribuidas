@@ -17,31 +17,6 @@ import { searchRecipes } from '../utils/recipesApi';
 import recetaTest from '../media/recetaTest.png';
 import imagenComida01 from '../media/imagenComida01.png';
 
-const [foodData, setFoodData] = useState('');
-const [userData, setUserData] = useState('');
-const [foodRating, setRating] = useState('');
-const [recipesScroll, setRecipesScroll] = useState([]);
-
-const validateUser = async () => {
-  const recipeDataApi = await searchRecipes();
-  //console.log(recipeDataApi);
-
-  //controlar si es 200, 404 o 500..........................
-  setFoodData(recipeDataApi[0]);
-  setUserData(recipeDataApi[0].user);
-
-
-  setRecipesScroll(recipeDataApi.slice(0, 3));
-  //console.log(recipeDataApi);
-  //console.log(recipeDataApi.slice(0,3));
-
-  const avgRating = recipeDataApi[0].ratingSet.map(item => item.rating).reduce((a, b) => a + b, 0);
-  setRating(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
-
-  
-  //console.log(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
-}
-
 
 
 
@@ -60,7 +35,7 @@ const Home = ({navigation}) => {
     //console.log(recipeDataApi);
 
     //controlar si es 200, 404 o 500..........................
-    /*setFoodData(recipeDataApi[0]);
+    setFoodData(recipeDataApi[0]);
     setUserData(recipeDataApi[0].user);
 
 
@@ -74,7 +49,7 @@ const Home = ({navigation}) => {
     
     //console.log(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
   }
-  validateUser();*/
+  validateUser();
   
   //const userData = Object.assign(name.user);
   //console.log(name.user);

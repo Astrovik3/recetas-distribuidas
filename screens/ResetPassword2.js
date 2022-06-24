@@ -6,6 +6,7 @@ import { Alert } from '@mui/material';
 
 import imgReset from '../media/imgReset.png';
 import { useStyles } from '../components/styles';
+import { passwordReset } from '../utils/recipesApi';
 
 
 const ResetPassword2 = ({route, navigation}) => {
@@ -15,9 +16,11 @@ const ResetPassword2 = ({route, navigation}) => {
   const [inputPass2, setPass2] = useState('');
   const [aviso, setAviso] = useState('');
   
-  const codigoEnviado = route.params;
+  const {codigoEnviado, userMail} = route.params;
 
-  const validateCode = () => {
+  const validateCode = async () => {
+
+
     if(codigoEnviado !== parseInt(inputCode)) {
       setAviso(<Alert severity="error">El código ingresado no coincide</Alert>);
     }
@@ -25,6 +28,8 @@ const ResetPassword2 = ({route, navigation}) => {
       setAviso(<Alert severity="error">Las contraseñas no coinciden</Alert>);
     }
     else if(codigoEnviado == parseInt(inputCode) && inputPass1 == inputPass2) {
+      const userDataAPI = await passwordReset(userMail, codigoEnviado, inputPass2);
+
       setAviso(<Alert severity="success">Todo en orden</Alert>);
       setTimeout(() => {
         navigation.navigate('Login');

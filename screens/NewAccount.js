@@ -18,12 +18,13 @@ const NewAccount = ({navigation}) => {
   const [aviso, setAviso] = useState('');
 
   const validateAccount = async () => {
-    const userDataAPI = await createAccount(inputEmail);
-    console.log(userDataAPI);
 
     if(inputEmail == '' || inputUser == '' || inputPassword == ''){
       setAviso(<Alert severity="error">Debe ingresar todos los datos</Alert>);
     }else {
+      const userDataAPI = await createAccount(inputUser, inputPassword, inputEmail);
+      console.log(userDataAPI);
+      
       if(userDataAPI == 200) {
         navigation.navigate('NewAccount2', inputEmail);
       }else if(userDataAPI == 500) {
