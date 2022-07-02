@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Grid } from '@material-ui/core';
 import Box from '@mui/material/Box';
 //import IconButton from '@mui/material/IconButton';
@@ -27,29 +27,41 @@ const Home = ({navigation}) => {
   const [userData, setUserData] = useState('');
   const [foodRating, setRating] = useState('');
   const [recipesScroll, setRecipesScroll] = useState([]);
+  
+  useEffect(() =>{
+    const validateUser = async () => {
+      const recipeDataApi = await searchRecipes()
+      .then(
+        (result) => {
+          setFoodData(result[0]);
+          setUserData(result[0].user);
+          setRecipesScroll(result.slice(0, 3));
+          console.log(result[0]);
+      });
 
-  const validateUser = async () => {
-    const recipeDataApi = await searchRecipes();
-
+      //setFoodData(recipeDataApi[0]);
+      //console.log(testa[0].user);
+    }
     validateUser();
-    //console.log(recipeDataApi);
+  }, []);
 
-    //controlar si es 200, 404 o 500..........................
-    setFoodData(recipeDataApi[0]);
-    setUserData(recipeDataApi[0].user);
+  console.log(recipesScroll);
+  console.log(userData.name);
+  console.log(foodData.name);
+  //console.log(testa[0]);
+
+      /*setFoodData(recipeDataApi[0]);
+      setUserData(recipeDataApi[0].user);
 
 
-    setRecipesScroll(recipeDataApi.slice(0, 3));
-    //console.log(recipeDataApi);
-    //console.log(recipeDataApi.slice(0,3));
+      setRecipesScroll(recipeDataApi.slice(0, 3));
+      //console.log(recipeDataApi);
+      //console.log(recipeDataApi.slice(0,3));
 
-    const avgRating = recipeDataApi[0].ratingSet.map(item => item.rating).reduce((a, b) => a + b, 0);
-    setRating(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
+      const avgRating = recipeDataApi[0].ratingSet.map(item => item.rating).reduce((a, b) => a + b, 0);
+      setRating(Math.round(avgRating / recipeDataApi[0].ratingSet.length));*/
 
-    
-    //console.log(Math.round(avgRating / recipeDataApi[0].ratingSet.length));
-  }
-  validateUser();
+
   
   //const userData = Object.assign(name.user);
   //console.log(name.user);
